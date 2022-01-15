@@ -4,7 +4,7 @@
  * @version : 2.8
 **/
 
-$password = "Kalix@2020"; // Password 
+$password = ""; // Password 
 
 
 
